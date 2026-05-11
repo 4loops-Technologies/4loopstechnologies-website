@@ -116,7 +116,7 @@ export function Header() {
 
           {/* CTA Button */}
           <Link href="#contact" className="hidden sm:block">
-            <Button className="h-[44px] px-[22px] rounded-full bg-[#0099ff] text-white font-semibold border-0 shadow-[0_0_50px_rgba(0,153,255,0.6)] transition-all duration-[300ms] hover:shadow-[0_0_70px_rgba(0,153,255,0.8)] hover:scale-[1.05]">
+            <Button className="h-[44px] px-[22px] rounded-full bg-[#00e676] text-[#022010] font-semibold border-0 shadow-[0_0_48px_rgba(0,230,118,0.62)] transition-all duration-[300ms] hover:shadow-[0_0_68px_rgba(0,230,118,0.85)] hover:scale-[1.05] hover:bg-[#1aed88]">
               Contact Us
             </Button>
           </Link>
@@ -153,7 +153,7 @@ export function Header() {
                 </Link>
               ))}
               <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-2">
-                <Button className="w-full h-[44px] rounded-full bg-[#0099ff] text-white font-semibold border-0 shadow-[0_0_50px_rgba(0,153,255,0.6)] transition-all duration-300 hover:shadow-[0_0_70px_rgba(0,153,255,0.8)] hover:scale-[1.05]">
+                <Button className="w-full h-[44px] rounded-full bg-[#00e676] text-[#022010] font-semibold border-0 shadow-[0_0_48px_rgba(0,230,118,0.62)] transition-all duration-300 hover:shadow-[0_0_68px_rgba(0,230,118,0.85)] hover:scale-[1.05] hover:bg-[#1aed88]">
                   Contact Us
                 </Button>
               </Link>

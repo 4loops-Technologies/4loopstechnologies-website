@@ -92,21 +92,6 @@ export function StatsSection() {
           ))}
         </div>
 
-        {/* Bottom tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 sm:mt-20 pt-10 border-t border-border/20 dark:border-white/[0.06]"
-        >
-          <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-center">
-            <span className="text-muted-foreground">The future belongs to those who </span>
-            <span className="bg-gradient-to-r from-neon-blue via-light-blue to-forest-green bg-clip-text text-transparent">
-              adapt faster
-            </span>
-          </p>
-        </motion.div>
       </div>
     </section>
   )

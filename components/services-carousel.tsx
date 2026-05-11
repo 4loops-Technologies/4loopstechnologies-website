@@ -1,7 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
+import { motion, useInView } from "framer-motion"
+import { useState, useEffect, useRef } from "react"
 import { Code2, Cpu, Globe, Layers, Lightbulb, Shield } from "lucide-react"
 
 const services = [
@@ -40,16 +40,17 @@ const services = [
 export function ServicesCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAutoplay, setIsAutoplay] = useState(true)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: false, amount: 0.25 })
 
   useEffect(() => {
-    if (!isAutoplay) return
-
+    // Only run autoplay when both user hasn't hovered AND section is visible
+    if (!isAutoplay || !isInView) return
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % services.length)
-    }, 2200)
-
+    }, 1800)
     return () => clearInterval(interval)
-  }, [isAutoplay])
+  }, [isAutoplay, isInView])
 
   const getCardPosition = (index: number) => {
     const distance = Math.abs(index - activeIndex)
@@ -79,19 +80,19 @@ export function ServicesCarousel() {
         }
       case "right":
         return {
-          scale: 0.75,
-          opacity: 0.35,
-          filter: "blur(6px)",
+          scale: 0.78,
+          opacity: 0.42,
+          filter: "blur(1.5px)",
           zIndex: 30,
-          x: 320,
+          x: 300,
         }
       case "left":
         return {
-          scale: 0.75,
-          opacity: 0.35,
-          filter: "blur(6px)",
+          scale: 0.78,
+          opacity: 0.42,
+          filter: "blur(1.5px)",
           zIndex: 30,
-          x: -320,
+          x: -300,
         }
       default:
         return {}
@@ -100,6 +101,7 @@ export function ServicesCarousel() {
 
   return (
     <div
+      ref={containerRef}
       className="relative w-full overflow-hidden py-20"
       onMouseEnter={() => setIsAutoplay(false)}
       onMouseLeave={() => setIsAutoplay(true)}
@@ -120,12 +122,13 @@ export function ServicesCarousel() {
             <motion.div
               key={index}
               className="absolute w-80"
+              initial={false}
               animate={styles}
               transition={{
                 type: "spring",
-                stiffness: 320,
-                damping: 18,
-                mass: 0.8,
+                stiffness: 380,
+                damping: 22,
+                mass: 0.7,
               }}
             >
               <motion.div
