@@ -61,19 +61,12 @@ const partners: Partner[] = [
     name: "AII Ethiopia",
     color: "#1565C0",
     logo: (
-      <svg viewBox="0 0 110 56" className="w-full h-full" aria-hidden>
-        {/* "AII" bold wordmark */}
-        <text
-          x="4" y="46"
-          fontSize="48" fontWeight="900"
-          fontFamily="Arial Black,Arial,sans-serif"
-          fill="currentColor" letterSpacing="-2"
-        >AII</text>
-        {/* Neural-network accent dot above the two I's */}
-        <circle cx="76" cy="6" r="5" fill="currentColor"/>
-        <circle cx="92" cy="6" r="5" fill="currentColor" opacity=".55"/>
-        <line x1="76" y1="6" x2="92" y2="6" stroke="currentColor" strokeWidth="1.5" opacity=".4"/>
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/partners/eai.png"
+        alt="Ethiopian Artificial Intelligence Institute"
+        className="w-full h-full object-contain"
+      />
     ),
   },
 
@@ -82,14 +75,12 @@ const partners: Partner[] = [
     name: "Temar Lije",
     color: "#E65100",
     logo: (
-      <svg viewBox="0 0 140 56" className="w-full h-full" aria-hidden>
-        <text x="70" y="30" fontSize="20" fontWeight="800"
-          fontFamily="Arial,sans-serif" textAnchor="middle"
-          fill="currentColor" letterSpacing="-0.5">TemarLije</text>
-        <text x="70" y="48" fontSize="13" fontWeight="500"
-          fontFamily="Arial,sans-serif" textAnchor="middle"
-          fill="currentColor" opacity=".7">ተማር ልጄ</text>
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/partners/temar-lije.png"
+        alt="Temar Lije"
+        className="w-full h-full object-contain"
+      />
     ),
   },
 
@@ -98,16 +89,12 @@ const partners: Partner[] = [
     name: "Numark",
     color: "#1B5E20",
     logo: (
-      <svg viewBox="0 0 128 42" className="w-full h-full" aria-hidden>
-        <text
-          x="64" y="34"
-          fontSize="30" fontWeight="900"
-          fontFamily="Arial Black,Arial,sans-serif"
-          textAnchor="middle" fill="currentColor" letterSpacing="3"
-        >NUMARK</text>
-        {/* Accent underline */}
-        <rect x="20" y="38" width="88" height="2" rx="1" fill="currentColor" opacity=".4"/>
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/partners/yeggi.png"
+        alt="Yeggi"
+        className="w-full h-full object-contain"
+      />
     ),
   },
 
@@ -116,18 +103,12 @@ const partners: Partner[] = [
     name: "Zekre Semaetat",
     color: "#6A1B9A",
     logo: (
-      <svg viewBox="0 0 64 64" className="w-full h-full" aria-hidden>
-        {/* Geometric frame */}
-        <rect x="4" y="4" width="56" height="56" rx="5"
-          fill="none" stroke="currentColor" strokeWidth="2.5"/>
-        {/* "ZS" monogram */}
-        <text x="32" y="44" fontSize="28" fontWeight="900"
-          fontFamily="Arial,sans-serif" textAnchor="middle"
-          fill="currentColor">ZS</text>
-        {/* Top accent dots */}
-        <circle cx="20" cy="12" r="3" fill="currentColor" opacity=".6"/>
-        <circle cx="44" cy="12" r="3" fill="currentColor" opacity=".6"/>
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/partners/ecco.png"
+        alt="ECCO Juice & Macchiato Bar"
+        className="w-full h-full object-contain"
+      />
     ),
   },
 
@@ -138,7 +119,7 @@ const partners: Partner[] = [
     logo: (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src="https://cdn.prod.website-files.com/688a26320b7ed61246f380ef/68920eb57de67d8f179ad328_Neovend%20logo.avif"
+        src="/partners/neovend.png"
         alt="Neovend"
         className="w-full h-full object-contain"
       />
@@ -164,15 +145,12 @@ const partners: Partner[] = [
     name: "ERPNext",
     color: "#2490EF",
     logo: (
-      <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden>
-        {/* Frappe four-petal pinwheel */}
-        <ellipse cx="50" cy="28" rx="14" ry="26" fill="currentColor"/>
-        <ellipse cx="72" cy="50" rx="26" ry="14" fill="currentColor" opacity=".78"/>
-        <ellipse cx="50" cy="72" rx="14" ry="26" fill="currentColor" opacity=".56"/>
-        <ellipse cx="28" cy="50" rx="26" ry="14" fill="currentColor" opacity=".34"/>
-        {/* Centre hub */}
-        <circle cx="50" cy="50" r="10" fill="currentColor"/>
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/partners/erpnext.png"
+        alt="ERPNext"
+        className="w-full h-full object-contain"
+      />
     ),
   },
 
@@ -183,7 +161,7 @@ const partners: Partner[] = [
     logo: (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src="https://cdn.prod.website-files.com/688a26320b7ed61246f380ef/68920eb57de67d8f179ad328_Neovend%20logo.avif"
+        src="/partners/neovend.png"
         alt="Neovend Ethiopia"
         className="w-full h-full object-contain"
       />

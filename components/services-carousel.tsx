@@ -4,6 +4,9 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Code2, Cpu, Globe, Layers, Lightbulb, Shield } from "lucide-react"
 
+const CAROUSEL_INTERVAL_MS = 1200
+const CAROUSEL_TRANSITION = { type: "spring" as const, stiffness: 380, damping: 32, mass: 0.6 }
+
 const services = [
   {
     icon: Code2,
@@ -46,7 +49,7 @@ export function ServicesCarousel() {
 
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % services.length)
-    }, 2200)
+    }, CAROUSEL_INTERVAL_MS)
 
     return () => clearInterval(interval)
   }, [isAutoplay])
@@ -102,7 +105,7 @@ export function ServicesCarousel() {
               key={index}
               className="absolute w-80"
               animate={styles}
-              transition={{ type: "spring", stiffness: 320, damping: 18, mass: 0.8 }}
+              transition={CAROUSEL_TRANSITION}
             >
               <motion.div
                 className="group h-96 rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border/40 p-8 flex flex-col justify-between hover:border-neon-blue/50 transition-all duration-300 cursor-pointer relative overflow-hidden"

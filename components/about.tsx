@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { ServicesCarousel } from "@/components/services-carousel"
 import { StatsSection } from "@/components/stats-section"
@@ -47,14 +48,28 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-neon-blue/20 via-light-blue/10 to-forest-green/20 p-1">
-              <div className="w-full h-full rounded-xl bg-card flex items-center justify-center border border-border">
-                <div className="text-center p-8">
-                  <div className="text-6xl sm:text-7xl font-bold bg-gradient-to-r from-neon-blue to-forest-green bg-clip-text text-transparent mb-4">
-                    4∞ps
-                  </div>
-                  <p className="text-muted-foreground">Infinite Possibilities</p>
-                </div>
+            <div className="relative aspect-square">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-[5%] -z-10 rounded-full bg-gradient-to-br from-neon-blue/22 via-light-blue/6 to-forest-green/28 blur-3xl"
+              />
+              <div
+                className="h-full w-full"
+                style={{
+                  maskImage:
+                    "radial-gradient(ellipse 88% 86% at 50% 45%, #000 48%, transparent 100%)",
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse 88% 86% at 50% 45%, #000 48%, transparent 100%)",
+                }}
+              >
+                <Image
+                  src="/about-digital-innovation.png"
+                  alt="Glowing 4loops chip held between fingertips, representing digital innovation"
+                  width={1024}
+                  height={957}
+                  className="h-full w-full object-cover scale-[1.05]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </div>
           </motion.div>
