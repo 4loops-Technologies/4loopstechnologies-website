@@ -65,11 +65,27 @@ const social = [
 // ─── Footer ───────────────────────────────────────────────────────────────
 
 export function Footer() {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const isDark = !mounted || resolvedTheme === "dark"
+
+  // Colour tokens that flip with the theme
+  // Dark mode uses a dark-navy → near-black gradient matching the reference image.
+  const bg         = isDark ? "linear-gradient(to bottom, #060d1a 0%, #03080f 100%)" : undefined
+  const headingC   = isDark ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.42)"
+  const linkC      = isDark ? "rgba(255,255,255,0.48)" : "rgba(0,0,0,0.58)"
+  const linkHoverC = isDark ? "rgba(255,255,255,0.9)"  : "rgba(0,0,0,0.88)"
+  const separatorC = isDark ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.09)"
+  const metaC      = isDark ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.40)"
+  const iconC      = isDark ? "rgba(255,255,255,0.32)" : "rgba(0,0,0,0.42)"
+  const iconHoverC = isDark ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.82)"
+
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden"
-      style={{ background: "#09090f" }}
+      className="relative overflow-hidden bg-background"
+      style={bg ? { background: bg } : undefined}
     >
       {/* ── Navigation columns ── */}
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -81,7 +97,7 @@ export function Footer() {
             >
               <p
                 className="mb-5 text-[11px] font-semibold uppercase tracking-[0.18em]"
-                style={{ color: "rgba(255,255,255,0.28)" }}
+                style={{ color: headingC }}
               >
                 {section.heading}
               </p>
@@ -91,13 +107,9 @@ export function Footer() {
                     <Link
                       href={link.href}
                       className="text-sm transition-colors duration-200"
-                      style={{ color: "rgba(255,255,255,0.48)" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "rgba(255,255,255,0.9)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color = "rgba(255,255,255,0.48)")
-                      }
+                      style={{ color: linkC }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = linkHoverC)}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = linkC)}
                     >
                       {link.label}
                     </Link>
@@ -109,14 +121,11 @@ export function Footer() {
         </div>
 
         {/* ── Separator ── */}
-        <div style={{ height: "1px", background: "rgba(255,255,255,0.07)" }} />
+        <div style={{ height: "1px", background: separatorC }} />
 
         {/* ── Copyright + social row ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
-          <p
-            className="text-xs order-2 sm:order-1"
-            style={{ color: "rgba(255,255,255,0.28)" }}
-          >
+          <p className="text-xs order-2 sm:order-1" style={{ color: metaC }}>
             © {new Date().getFullYear()} 4loops Technologies. All rights reserved.
           </p>
 
@@ -128,13 +137,9 @@ export function Footer() {
                 href={href}
                 aria-label={label}
                 className="transition-colors duration-200"
-                style={{ color: "rgba(255,255,255,0.32)" }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "rgba(255,255,255,0.85)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "rgba(255,255,255,0.32)")
-                }
+                style={{ color: iconC }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = iconHoverC)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = iconC)}
               >
                 <Icon className="w-4 h-4" />
               </Link>
@@ -143,62 +148,56 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ── Bottom branding — full-viewport-width "4loops" ── */}
+      {/* ── Bottom branding ── */}
       {/*
-        SVG with textLength="1200" matching the viewBox width guarantees
-        the text spans exactly 100% of the container at every breakpoint.
-        The SVG scales uniformly (aspect-ratio preserved), so the text
-        height also scales proportionally — no distortion, no clipping.
-
-        Gradient: dark navy → neon green → forest green → dark navy
-        Glow: SVG feGaussianBlur merge creates a soft neon bloom.
+        textLength="1200" = viewBox width → text fills 100% at every breakpoint.
+        No filter: crisp sharp glyphs exactly as in the reference image.
+        Gradient: dark navy (#0c1c35) → deep blue → sky blue → bright cyan → teal (#00e5b5)
       */}
-      <div className="w-full select-none overflow-hidden" aria-hidden>
+      {/*
+        SVG fills 100vw via w-full; textLength="1200" = viewBox width forces
+        glyphs to span the full container regardless of screen width.
+        viewBox height 260, baseline y=228: cap-tops sit at ≈68px from top
+        (tight vertical breathing room), "p" descender clips at ≈268 → the
+        letterforms feel immersive, flush, and cinematic.
+        fontSize="230" gives ~276px rendered height at 1440px viewport.
+      */}
+      <div className="w-full select-none overflow-hidden leading-none" aria-hidden>
         <svg
-          viewBox="0 0 1200 290"
+          viewBox="0 0 1200 360"
           xmlns="http://www.w3.org/2000/svg"
           className="block w-full"
           focusable="false"
           aria-hidden="true"
         >
           <defs>
-            {/* Horizontal gradient: dark navy → neon green → forest green → navy */}
+            {/*
+              Gradient cloned from reference image:
+              dark navy (#0c1c35) → deep blue → sky blue → bright cyan → teal (#00e5b5)
+            */}
             <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stopColor="#1a365d" />
-              <stop offset="26%"  stopColor="#00e676" />
-              <stop offset="58%"  stopColor="#2d9a7a" />
-              <stop offset="100%" stopColor="#1a2f52" />
+              <stop offset="0%"   stopColor="#0c1c35" />
+              <stop offset="16%"  stopColor="#1a3a6e" />
+              <stop offset="36%"  stopColor="#2468b4" />
+              <stop offset="54%"  stopColor="#3a98d4" />
+              <stop offset="72%"  stopColor="#00ccf0" />
+              <stop offset="86%"  stopColor="#00d8c4" />
+              <stop offset="100%" stopColor="#00e5b5" />
             </linearGradient>
-
-            {/* Neon bloom: wider blur radius for a more luminous glow */}
-            <filter id="brand-glow" x="-4%" y="-25%" width="108%" height="150%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
           </defs>
 
-          {/*
-            fontSize="215" in SVG user-units gives the glyphs their intrinsic height.
-            At 1440px viewport: each unit = 1440/1200 = 1.2px → text appears 258px tall.
-            textLength="1200" forces the text to span exactly the full viewBox width.
-            y="248" baseline: cap-tops sit ~90 units from the viewBox top edge;
-            the "p" descender (~47 units) lands at 295 → viewBox clips it slightly,
-            creating the cinematic flush-to-edge effect identical to Laravel.com.
-          */}
           <text
             x="600"
-            y="248"
-            fontSize="215"
+            y="318"
+            fontSize="318"
             textAnchor="middle"
-            fontFamily="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif"
-            fontWeight="900"
+            style={{
+              fontFamily: "var(--font-instrument-sans, 'Instrument Sans'), ui-sans-serif, system-ui, sans-serif",
+              fontWeight: 700,
+            }}
             textLength="1200"
             lengthAdjust="spacingAndGlyphs"
             fill="url(#brand-grad)"
-            filter="url(#brand-glow)"
             letterSpacing="-6"
           >
             4loops

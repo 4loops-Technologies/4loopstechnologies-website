@@ -27,130 +27,166 @@ const STYLES = `
 type Partner = { name: string; color: string; logo: React.ReactNode }
 
 const partners: Partner[] = [
+  // 1 ── Microsoft Azure ─────────────────────────────────────────────────────
   {
-    name: "Microsoft",
-    color: "#00A4EF",
+    name: "Microsoft Azure",
+    color: "#0078D4",
     logo: (
-      <svg viewBox="0 0 23 23" className="w-full h-full" aria-hidden>
-        <rect x="1"  y="1"  width="10" height="10" fill="currentColor" />
-        <rect x="12" y="1"  width="10" height="10" fill="currentColor" opacity=".75" />
-        <rect x="1"  y="12" width="10" height="10" fill="currentColor" opacity=".55" />
-        <rect x="12" y="12" width="10" height="10" fill="currentColor" opacity=".9" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
+        alt="Microsoft Azure"
+        className="w-full h-full object-contain"
+      />
     ),
   },
+
+  // 2 ── Google ──────────────────────────────────────────────────────────────
   {
-    name: "AWS",
-    color: "#FF9900",
-    logo: (
-      <svg viewBox="0 0 80 50" className="w-full h-full" aria-hidden>
-        <text
-          x="0" y="36" fontSize="36" fontWeight="bold"
-          fontFamily="Arial,sans-serif" fill="currentColor" letterSpacing="-1"
-        >aws</text>
-        <path
-          d="M64 42c-7 4.5-18 7-27 7a50 50 0 01-34-13c-.7-.6-.1-1.4.8-.9 10 6 22 9.5 35 9.5
-             8.5 0 18-1.8 26.5-5.5 1.3-.6 2.4.8 1.1 1.7zm4-4.5c-1-1.2-6.4-.6-8.8-.3-.8.1-.9-.6
-             -.2-1 4.4-3 11.5-2.2 12.4-1.2.9 1-.3 8.2-4.3 11.6-.6.5-1.3.3-1-.4.9-2.3 2.9-7.5 1.9-8.7z"
-          fill="currentColor"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Google Cloud",
+    name: "Google",
     color: "#4285F4",
     logo: (
+      <svg viewBox="0 0 24 24" className="w-full h-full" aria-hidden>
+        {/* Full-colour Google "G" — grayscale filter desaturates on default, reveals colours on hover */}
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+    ),
+  },
+
+  // 3 ── AII Ethiopia (AI Institute of Ethiopia) ─────────────────────────────
+  {
+    name: "AII Ethiopia",
+    color: "#1565C0",
+    logo: (
+      <svg viewBox="0 0 110 56" className="w-full h-full" aria-hidden>
+        {/* "AII" bold wordmark */}
+        <text
+          x="4" y="46"
+          fontSize="48" fontWeight="900"
+          fontFamily="Arial Black,Arial,sans-serif"
+          fill="currentColor" letterSpacing="-2"
+        >AII</text>
+        {/* Neural-network accent dot above the two I's */}
+        <circle cx="76" cy="6" r="5" fill="currentColor"/>
+        <circle cx="92" cy="6" r="5" fill="currentColor" opacity=".55"/>
+        <line x1="76" y1="6" x2="92" y2="6" stroke="currentColor" strokeWidth="1.5" opacity=".4"/>
+      </svg>
+    ),
+  },
+
+  // 4 ── Temar Lije ─────────────────────────────────────────────────────────
+  {
+    name: "Temar Lije",
+    color: "#E65100",
+    logo: (
+      <svg viewBox="0 0 140 56" className="w-full h-full" aria-hidden>
+        <text x="70" y="30" fontSize="20" fontWeight="800"
+          fontFamily="Arial,sans-serif" textAnchor="middle"
+          fill="currentColor" letterSpacing="-0.5">TemarLije</text>
+        <text x="70" y="48" fontSize="13" fontWeight="500"
+          fontFamily="Arial,sans-serif" textAnchor="middle"
+          fill="currentColor" opacity=".7">ተማር ልጄ</text>
+      </svg>
+    ),
+  },
+
+  // 5 ── Numark ──────────────────────────────────────────────────────────────
+  {
+    name: "Numark",
+    color: "#1B5E20",
+    logo: (
+      <svg viewBox="0 0 128 42" className="w-full h-full" aria-hidden>
+        <text
+          x="64" y="34"
+          fontSize="30" fontWeight="900"
+          fontFamily="Arial Black,Arial,sans-serif"
+          textAnchor="middle" fill="currentColor" letterSpacing="3"
+        >NUMARK</text>
+        {/* Accent underline */}
+        <rect x="20" y="38" width="88" height="2" rx="1" fill="currentColor" opacity=".4"/>
+      </svg>
+    ),
+  },
+
+  // 6 ── Zekre Semaetat ──────────────────────────────────────────────────────
+  {
+    name: "Zekre Semaetat",
+    color: "#6A1B9A",
+    logo: (
       <svg viewBox="0 0 64 64" className="w-full h-full" aria-hidden>
-        <path d="M40.3 17.7 44 14l.3-1.5A23.1 23.1 0 0 0 14.9 43l1.3-.2 7.3-1.2.6-.6A13.7 13.7 0 0 1 40 19.1z"
-              fill="currentColor" opacity=".45"/>
-        <path d="M49 13a23.1 23.1 0 0 0-5-3L40.3 17.7a13.7 13.7 0 0 1 5 17.1l7.4 9.1A23.1 23.1 0 0 0 49 13z"
-              fill="currentColor"/>
-        <path d="M16.3 54c5 3.8 11.4 5.6 17.8 4.9l9.4-9.5-.5-.8A13.7 13.7 0 0 1 23.6 42l-.6.1z"
-              fill="currentColor" opacity=".65"/>
-        <path d="M52.7 43.9 44 34.8a13.7 13.7 0 0 1-5 14.6l.2 1 9.3 9.5 1.3-.2a23.1 23.1 0 0 0 2.9-15.8z"
-              fill="currentColor" opacity=".85"/>
+        {/* Geometric frame */}
+        <rect x="4" y="4" width="56" height="56" rx="5"
+          fill="none" stroke="currentColor" strokeWidth="2.5"/>
+        {/* "ZS" monogram */}
+        <text x="32" y="44" fontSize="28" fontWeight="900"
+          fontFamily="Arial,sans-serif" textAnchor="middle"
+          fill="currentColor">ZS</text>
+        {/* Top accent dots */}
+        <circle cx="20" cy="12" r="3" fill="currentColor" opacity=".6"/>
+        <circle cx="44" cy="12" r="3" fill="currentColor" opacity=".6"/>
       </svg>
     ),
   },
+
+  // 7 ── Neovend ─────────────────────────────────────────────────────────────
   {
-    name: "Stripe",
-    color: "#635BFF",
+    name: "Neovend",
+    color: "#00838F",
     logo: (
-      <svg viewBox="0 0 60 26" className="w-full h-full" aria-hidden>
-        <path
-          d="M6 9.8c0-1 .8-1.4 2.1-1.4 1.9 0 4.3.6 6.2 1.6V4.2C12.4 3.4 10.6 3 8.1 3 3.3 3 0 5.5 0 10.1c0
-             7.3 10 6.1 10 9.3 0 1.1-1 1.6-2.4 1.6-2.1 0-4.7-.9-6.8-2.1v5.9C2.9 25.8 5.5 26 8.1 26c5 0 8.4-2.5
-             8.4-7.1-.1-7.8-10-6.4-10-9.1zm16.1-6.4L16 4.8l-.1 15.7 6.2.1zm6.3 5.2-.4-5.2H22.3l-.1 21.7h6.2
-             v-11c1.4-1.9 3.9-1.5 4.6-1.3v-9c-.8-.2-3.6-.6-4.6 1.8zm9.5-5.2-6.2 1.4.1 19.7 6.2-.1zm10.7 0
-             c-6.1 0-10.7 4.7-10.7 11.4v.3c0 7.6 4.9 11.3 11 11.3 3 0 5.3-.7 7-1.8v-5.5c-1.6 1.1-3.5 1.8-5.7
-             1.8-2 0-3.8-.8-4.1-3.4h10.6c.1-.5.1-1.1.1-1.6 0-6.5-3.3-12.5-8.2-12.5zm-2.5 9.3c.3-2.5 1.7-3.4
-             2.5-3.4.7 0 2.1.9 2.2 3.4z"
-          fill="currentColor"
-        />
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="https://cdn.prod.website-files.com/688a26320b7ed61246f380ef/68920eb57de67d8f179ad328_Neovend%20logo.avif"
+        alt="Neovend"
+        className="w-full h-full object-contain"
+      />
+    ),
+  },
+
+  // 8 ── Buna Bello ──────────────────────────────────────────────────────────
+  {
+    name: "Buna Bello",
+    color: "#5D4037",
+    logo: (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="https://bunabello.com/wp-content/uploads/2025/02/We-Mean-Coffee1.png"
+        alt="Buna Bello"
+        className="w-full h-full object-contain"
+      />
+    ),
+  },
+
+  // 9 ── ERPNext / Frappe ────────────────────────────────────────────────────
+  {
+    name: "ERPNext",
+    color: "#2490EF",
+    logo: (
+      <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden>
+        {/* Frappe four-petal pinwheel */}
+        <ellipse cx="50" cy="28" rx="14" ry="26" fill="currentColor"/>
+        <ellipse cx="72" cy="50" rx="26" ry="14" fill="currentColor" opacity=".78"/>
+        <ellipse cx="50" cy="72" rx="14" ry="26" fill="currentColor" opacity=".56"/>
+        <ellipse cx="28" cy="50" rx="26" ry="14" fill="currentColor" opacity=".34"/>
+        {/* Centre hub */}
+        <circle cx="50" cy="50" r="10" fill="currentColor"/>
       </svg>
     ),
   },
+
+  // 10 ── Neovend Ethiopia ───────────────────────────────────────────────────
   {
-    name: "GitHub",
-    color: "#6e40c9",
+    name: "Neovend Ethiopia",
+    color: "#00695C",
     logo: (
-      <svg viewBox="0 0 24 24" className="w-full h-full" aria-hidden>
-        <path
-          d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7
-             1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.8 0-1.3.5-2.4 1.2-3.2
-             -.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8
-             1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"
-          fill="currentColor"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "OpenAI",
-    color: "#10a37f",
-    logo: (
-      <svg viewBox="0 0 41 41" className="w-full h-full" aria-hidden>
-        <path
-          d="M37.5 16.6a10.3 10.3 0 0 0-.9-8.5 10.5 10.5 0 0 0-11.3-5 10.3 10.3 0 0 0-7.8-3.5 10.5 10.5 0 0 0-10
-             7.3 10.3 10.3 0 0 0-6.9 5 10.5 10.5 0 0 0 1.3 12.3 10.3 10.3 0 0 0 .9 8.5 10.5 10.5 0 0 0 11.3 5
-             10.3 10.3 0 0 0 7.8 3.5 10.5 10.5 0 0 0 10-7.3 10.3 10.3 0 0 0 6.9-5 10.5 10.5 0 0 0-1.3-12.3z
-             M22.5 37a7.8 7.8 0 0 1-5-1.8l.2-.1 8.4-4.8a1.4 1.4 0 0 0 .7-1.2V17.6l3.5 2v10.4c0 5-4 9-9 9z
-             m-19.4-8.3a7.8 7.8 0 0 1-.9-5.3l.2.1 8.4 4.8a1.4 1.4 0 0 0 1.4 0l10.2-5.9v4.1l-8.5 4.9a9 9 0 0 1-10.8-2.8z
-             m-2.5-20.8A7.8 7.8 0 0 1 5.7 4l8.4 4.9a1.4 1.4 0 0 0 1.4 0L25.7 3v4l-8.4 4.9a9 9 0 0 1-16.7-4z
-             M33 24.5l-10.2-5.9-3.5 2v-4.1l8.5-4.8a9 9 0 0 1 5.2 8.8zm-1.2-8.4-.2-.1-8.4-4.8a1.4 1.4 0 0 0-1.4
-             0l-10.2 5.9v-4l8.5-4.9a9 9 0 0 1 11.7 3.9z"
-          fill="currentColor"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Vercel",
-    color: "#888",
-    logo: (
-      <svg viewBox="0 0 24 24" className="w-full h-full" aria-hidden>
-        <path d="M24 22.525H0L12 1.475z" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    name: "Meta",
-    color: "#0082fb",
-    logo: (
-      <svg viewBox="0 0 36 36" className="w-full h-full" aria-hidden>
-        <path
-          d="M3.2 18.6c0 3.8 1 6.8 2.4 8.6.9 1.2 2 1.8 3 1.8 1.4 0 2.7-.9 4.2-3.5.9-1.7 2-4.2 3.3-7.4l1.5-3.8
-             c1-2.7 2.2-5.2 3.3-7 .9-1.4 1.9-2.5 3-3.2a5.8 5.8 0 0 1 3.1-.9c2.4 0 4.6 1.4 6.4 4 1.7 2.5 2.6 5.8 2.6
-             9.3C36 23.5 34 28 30.6 30c-1.3.8-2.6 1.1-4.1 1.1v-2.7c2.8-.4 4.5-3.2 4.5-8 0-3-.6-5.5-1.8-7.3-1-1.4
-             -2-2.1-3.3-2.1-.8 0-1.6.3-2.4 1-1 .9-2 2.5-3.2 5.3l-1.3 3.2c-1.6 4-2.8 6.6-3.9 8.3-1.5 2.3-3 3.3-4.7
-             3.3-1.6 0-3.2-.9-4.7-2.7C.8 28 0 25.1 0 21.7c0-4 1-7.3 2.8-9.7 1.5-2 3.3-3 5.3-3 1.5 0 2.7.4 3.8
-             1.3-2.4 1.4-4.1 4.4-5.3 8.5l-.4 3.2c-.7-1.3-1-3-.9-3.4z
-             M14 19.5c-1 2.6-2 4.7-2.8 6-1.1 1.8-2 2.7-3 2.7s-1.7-.4-2.4-1.3c-1-1.3-1.7-3.5-1.7-6.3 0-3.1.7-5.7
-             2-7.3.6-.8 1.2-1.1 1.8-1.1 1.3 0 2.8 2.2 4.6 6.3z"
-          fill="currentColor"
-        />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="https://cdn.prod.website-files.com/688a26320b7ed61246f380ef/68920eb57de67d8f179ad328_Neovend%20logo.avif"
+        alt="Neovend Ethiopia"
+        className="w-full h-full object-contain"
+      />
     ),
   },
 ]

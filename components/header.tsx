@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Products", href: "#products" },
-  { name: "Solutions", href: "#solutions" },
+  { name: "Solutions", href: "/solutions" },
   { name: "Portfolio", href: "#portfolio" },
-  { name: "About Us", href: "#about" },
+  { name: "About Us", href: "/about" },
 ]
 
 export function Header() {
@@ -72,19 +72,26 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-5">
       <nav
-        className="w-[88%] h-[74px] flex items-center justify-between px-[30px] py-[14px] rounded-[20px] group"
+        className="w-[88%] h-[74px] flex items-center justify-between px-[30px] py-[8px] rounded-[20px] group"
         style={navStyle}
       >
-        {/* Logo */}
-        <Link href="#home" className="flex items-center flex-shrink-0 group/logo">
+        {/* Logo — always routes to landing page */}
+        <Link href="/" className="flex flex-col items-start flex-shrink-0 group/logo">
           <Image
             src="/logo.png"
             alt="4loops Technologies"
             width={312}
             height={156}
-            className="h-[156px] md:h-[138px] lg:h-[156px] w-auto transition-all duration-300 group-hover/logo:scale-105 dark:drop-shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover/logo:dark:drop-shadow-[0_0_25px_rgba(0,212,255,0.5)]"
+            className="h-[54px] w-auto transition-all duration-300 group-hover/logo:scale-105 dark:drop-shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover/logo:dark:drop-shadow-[0_0_25px_rgba(0,212,255,0.5)]"
             priority
           />
+          <span
+            className={`text-[9px] font-semibold tracking-[0.22em] uppercase -mt-3 ml-0.5 transition-colors duration-300 ${
+              isDark ? "text-white/35 group-hover/logo:text-white/55" : "text-foreground/40 group-hover/logo:text-foreground/60"
+            }`}
+          >
+            Technologies
+          </span>
         </Link>
 
         {/* Desktop Navigation - Center */}
@@ -115,7 +122,7 @@ export function Header() {
           )}
 
           {/* CTA Button */}
-          <Link href="#contact" className="hidden sm:block">
+          <Link href="/contact" className="hidden sm:block">
             <Button className="h-[44px] px-[22px] rounded-full bg-[#00e676] text-[#022010] font-semibold border-0 shadow-[0_0_48px_rgba(0,230,118,0.62)] transition-all duration-[300ms] hover:shadow-[0_0_68px_rgba(0,230,118,0.85)] hover:scale-[1.05] hover:bg-[#1aed88]">
               Contact Us
             </Button>
@@ -152,7 +159,7 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Link href="#contact" onClick={() => setIsOpen(false)} className="mt-2">
+              <Link href="/contact" onClick={() => setIsOpen(false)} className="mt-2">
                 <Button className="w-full h-[44px] rounded-full bg-[#00e676] text-[#022010] font-semibold border-0 shadow-[0_0_48px_rgba(0,230,118,0.62)] transition-all duration-300 hover:shadow-[0_0_68px_rgba(0,230,118,0.85)] hover:scale-[1.05] hover:bg-[#1aed88]">
                   Contact Us
                 </Button>

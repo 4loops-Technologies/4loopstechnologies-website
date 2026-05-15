@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState, useRef, useCallback } from "react"
+import { useState, useRef, useCallback, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
+import { useTheme } from "next-themes"
 
 // ─── SVG preview graphics ──────────────────────────────────────────────────
 
@@ -149,9 +150,9 @@ function RealEstateGraphic({ accent }: { accent: string }) {
 
 const projects = [
   {
-    title: "FinTech Dashboard",
-    category: "Financial Services",
-    description: "Enterprise financial platform with real-time analytics, AI-powered forecasting, and multi-currency transaction management.",
+    title: "#1 AI Solutions in Ethiopia",
+    category: "AI Powered Systems",
+    description: "End-to-end AI transformation — from intelligent automation and predictive analytics to custom model deployment for Ethiopian enterprises.",
     accent: "#00d4ff",
     Graphic: FinTechGraphic,
     featured: true,
@@ -160,9 +161,9 @@ const projects = [
     mobileClass: "sm:col-span-2 min-h-[380px]",
   },
   {
-    title: "HealthCare Portal",
-    category: "Healthcare",
-    description: "Patient management with telemedicine, secure records, and ML diagnostics.",
+    title: "ERP & Business Solutions",
+    category: "Enterprise Software",
+    description: "ERPNext-powered systems tailored for Ethiopian businesses — finance, HR, inventory, and operations unified.",
     accent: "#2d9a7a",
     Graphic: HealthGraphic,
     featured: false,
@@ -171,9 +172,9 @@ const projects = [
     mobileClass: "min-h-[200px]",
   },
   {
-    title: "E-Commerce Platform",
-    category: "Retail",
-    description: "Scalable marketplace with AI recommendations and seamless checkout.",
+    title: "Intelligent Chatbot Platforms",
+    category: "Conversational AI",
+    description: "AI-driven chatbots and virtual assistants that handle support, sales, and workflows in Amharic and English.",
     accent: "#635BFF",
     Graphic: EcommerceGraphic,
     featured: false,
@@ -182,9 +183,9 @@ const projects = [
     mobileClass: "min-h-[200px]",
   },
   {
-    title: "Smart Logistics",
-    category: "Transportation",
-    description: "Fleet management and route optimisation powered by real-time ML.",
+    title: "ERP and CRM System Solutions",
+    category: "ERP & CRM Systems",
+    description: "Robotic process automation and intelligent workflows that eliminate manual tasks and scale operations effortlessly.",
     accent: "#FF9900",
     Graphic: LogisticsGraphic,
     featured: false,
@@ -193,9 +194,9 @@ const projects = [
     mobileClass: "min-h-[220px]",
   },
   {
-    title: "EdTech Learning",
-    category: "Education",
-    description: "AI tutoring, adaptive progress tracking, and interactive curriculum tools.",
+    title: "Business Intelligence & Analytics",
+    category: "Business Intelligence",
+    description: "Real-time dashboards and ML-driven insights that turn raw business data into clear, actionable decisions.",
     accent: "#4ade80",
     Graphic: EdTechGraphic,
     featured: false,
@@ -204,9 +205,9 @@ const projects = [
     mobileClass: "min-h-[220px]",
   },
   {
-    title: "Real Estate CRM",
-    category: "Property",
-    description: "Property platform with virtual tours and automated lead nurturing.",
+    title: "Cloud Infrastructure & DevOps",
+    category: "Cloud & DevOps",
+    description: "End-to-end modernisation — cloud migration, API integration, and scalable architecture built for growth.",
     accent: "#5fb8e8",
     Graphic: RealEstateGraphic,
     featured: false,
@@ -220,7 +221,7 @@ const projects = [
 
 type Project = (typeof projects)[0]
 
-function Card({ project, index }: { project: Project; index: number }) {
+function Card({ project, index, isDark }: { project: Project; index: number; isDark: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
   const [hovered, setHovered] = useState(false)
@@ -247,15 +248,29 @@ function Card({ project, index }: { project: Project; index: number }) {
       className="relative overflow-hidden flex flex-col w-full h-full"
       style={{
         borderRadius: featured ? "24px" : "20px",
-        background: featured
-          ? "linear-gradient(160deg, rgba(0,16,40,0.98) 0%, rgba(3,10,24,1) 100%)"
-          : "linear-gradient(150deg, rgba(8,14,32,0.96) 0%, rgba(5,10,24,0.98) 100%)",
-        border: `1px solid ${hovered ? accent + "60" : featured ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.065)"}`,
-        boxShadow: hovered
-          ? `0 24px 70px rgba(0,0,0,0.75), 0 0 0 1px ${accent}38, 0 0 70px ${accent}12`
+        background: isDark
+          ? featured
+            ? "linear-gradient(160deg, rgba(0,16,40,0.98) 0%, rgba(3,10,24,1) 100%)"
+            : "linear-gradient(150deg, rgba(8,14,32,0.96) 0%, rgba(5,10,24,0.98) 100%)"
           : featured
-          ? "0 10px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)"
-          : "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03)",
+            ? "linear-gradient(160deg, #f0f6ff 0%, #eaf2ff 100%)"
+            : "#ffffff",
+        border: `1px solid ${
+          hovered
+            ? accent + "55"
+            : isDark
+              ? featured ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0.065)"
+              : "rgba(0,0,0,0.08)"
+        }`,
+        boxShadow: hovered
+          ? `0 24px 70px rgba(0,0,0,${isDark ? "0.75" : "0.12"}), 0 0 0 1px ${accent}38, 0 0 70px ${accent}12`
+          : featured
+            ? isDark
+              ? "0 10px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)"
+              : "0 8px 40px rgba(0,0,0,0.10)"
+            : isDark
+              ? "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03)"
+              : "0 2px 16px rgba(0,0,0,0.07)",
         backdropFilter: "blur(16px)",
         transition: "border-color 0.32s ease, box-shadow 0.32s ease",
       }}
@@ -339,15 +354,22 @@ function Card({ project, index }: { project: Project; index: number }) {
         </span>
 
         <h3
-          className="font-bold text-white leading-tight"
-          style={{ fontSize: featured ? "clamp(18px,2vw,24px)" : "15px", marginBottom: "8px" }}
+          className="font-bold leading-tight"
+          style={{
+            fontSize: featured ? "clamp(18px,2vw,24px)" : "15px",
+            marginBottom: "8px",
+            color: isDark ? "#ffffff" : "#0f172a",
+          }}
         >
           {project.title}
         </h3>
 
         <p
-          className="text-white/42 leading-relaxed"
-          style={{ fontSize: featured ? "13.5px" : "12px" }}
+          className="leading-relaxed"
+          style={{
+            fontSize: featured ? "13.5px" : "12px",
+            color: isDark ? "rgba(255,255,255,0.42)" : "rgba(15,23,42,0.58)",
+          }}
         >
           {project.description}
         </p>
@@ -355,7 +377,10 @@ function Card({ project, index }: { project: Project; index: number }) {
         <motion.button
           whileHover={{ x: 4, transition: { duration: 0.14 } }}
           className="mt-4 self-start flex items-center gap-1.5 font-semibold transition-colors duration-200"
-          style={{ fontSize: "11px", color: hovered ? accent : "rgba(255,255,255,0.32)" }}
+          style={{
+            fontSize: "11px",
+            color: hovered ? accent : isDark ? "rgba(255,255,255,0.32)" : "rgba(15,23,42,0.38)",
+          }}
         >
           See More
           <ArrowUpRight className="w-3.5 h-3.5" />
@@ -377,25 +402,29 @@ function Card({ project, index }: { project: Project; index: number }) {
 // ─── Section ───────────────────────────────────────────────────────────────
 
 export function Portfolio() {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const isDark = !mounted || resolvedTheme === "dark"
+
   return (
     <section
       id="portfolio"
-      className="relative py-24 sm:py-32 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(to bottom, transparent 0%, #04091a 6%, #04091a 94%, transparent 100%)",
-      }}
+      className="relative py-24 sm:py-32 overflow-hidden bg-background"
+      style={isDark ? {
+        background: "linear-gradient(to bottom, transparent 0%, #04091a 6%, #04091a 94%, transparent 100%)",
+      } : undefined}
     >
-      {/* ── Background atmosphere ── */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div style={{ position:"absolute", top:"18%",  left:"8%",   width:640, height:640, opacity:.055, background:"radial-gradient(circle,#00d4ff,transparent 62%)", filter:"blur(100px)" }} />
-        <div style={{ position:"absolute", bottom:"12%",right:"6%",  width:560, height:560, opacity:.045, background:"radial-gradient(circle,#635BFF,transparent 62%)", filter:"blur(100px)" }} />
-        <div style={{ position:"absolute", top:"55%",  left:"42%",  width:400, height:400, opacity:.03,  background:"radial-gradient(circle,#2d9a7a,transparent 65%)", filter:"blur(80px)" }} />
-        {/* dot grid */}
-        <div style={{ position:"absolute", inset:0, opacity:.018, backgroundImage:"radial-gradient(rgba(255,255,255,0.85) 1px, transparent 1px)", backgroundSize:"30px 30px" }} />
-        {/* vignette */}
-        <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(2,6,18,0.55) 100%)" }} />
-      </div>
+      {/* ── Background atmosphere — only rendered in dark mode ── */}
+      {isDark && (
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <div style={{ position:"absolute", top:"18%",  left:"8%",   width:640, height:640, opacity:.055, background:"radial-gradient(circle,#00d4ff,transparent 62%)", filter:"blur(100px)" }} />
+          <div style={{ position:"absolute", bottom:"12%",right:"6%",  width:560, height:560, opacity:.045, background:"radial-gradient(circle,#635BFF,transparent 62%)", filter:"blur(100px)" }} />
+          <div style={{ position:"absolute", top:"55%",  left:"42%",  width:400, height:400, opacity:.03,  background:"radial-gradient(circle,#2d9a7a,transparent 65%)", filter:"blur(80px)" }} />
+          <div style={{ position:"absolute", inset:0, opacity:.018, backgroundImage:"radial-gradient(rgba(255,255,255,0.85) 1px, transparent 1px)", backgroundSize:"30px 30px" }} />
+          <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(2,6,18,0.55) 100%)" }} />
+        </div>
+      )}
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -407,13 +436,19 @@ export function Portfolio() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight"
+            style={{ color: isDark ? "#ffffff" : "#000000" }}
+          >
             Featured{" "}
             <span className="bg-gradient-to-r from-neon-blue via-light-blue to-forest-green bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="text-white/38 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">
+          <p
+            className="max-w-lg mx-auto text-sm sm:text-base leading-relaxed"
+            style={{ color: isDark ? "rgba(255,255,255,0.38)" : "#000000" }}
+          >
             Explore our portfolio of successful projects that have transformed businesses across industries.
           </p>
         </motion.div>
@@ -447,7 +482,7 @@ export function Portfolio() {
                 gridRow: project.desktop.row,
               }}
             >
-              <Card project={project} index={i} />
+              <Card project={project} index={i} isDark={isDark} />
             </div>
           ))}
         </div>
@@ -465,7 +500,7 @@ export function Portfolio() {
               key={project.title}
               className={project.mobileClass}
             >
-              <Card project={project} index={i} />
+              <Card project={project} index={i} isDark={isDark} />
             </div>
           ))}
         </div>
