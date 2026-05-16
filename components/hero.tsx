@@ -8,6 +8,7 @@ export function Hero() {
   return (
     <section
       id="home"
+      aria-label="Hero section"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

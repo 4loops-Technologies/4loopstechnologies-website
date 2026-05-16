@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 
 const navItems = [
   { name: "Home", href: "#home" },
-  { name: "Products", href: "#products" },
   { name: "Solutions", href: "/solutions" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "About Us", href: "/about" },
@@ -70,7 +69,7 @@ export function Header() {
     : { background: "rgba(0, 0, 0, 0.04)", border: "1px solid rgba(0, 0, 0, 0.08)" }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-5">
+    <header role="banner" className="fixed top-0 left-0 right-0 z-50 flex justify-center py-5">
       <nav
         className="w-[88%] h-[74px] flex items-center justify-between px-[30px] py-[8px] rounded-[20px] group"
         style={navStyle}

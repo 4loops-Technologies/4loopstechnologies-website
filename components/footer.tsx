@@ -84,6 +84,8 @@ export function Footer() {
   return (
     <footer
       id="contact"
+      role="contentinfo"
+      aria-label="Site footer"
       className="relative overflow-hidden bg-background"
       style={bg ? { background: bg } : undefined}
     >
