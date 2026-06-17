@@ -146,6 +146,154 @@ function RealEstateGraphic({ accent }: { accent: string }) {
   )
 }
 
+function NFCBusinessCardGraphic({ accent }: { accent: string }) {
+  return (
+    <svg
+      viewBox="0 0 220 130"
+      fill="none"
+      className="w-full h-full"
+      aria-hidden
+    >
+      {/* Left Phone */}
+      <rect
+        x="15"
+        y="25"
+        width="42"
+        height="80"
+        rx="8"
+        fill={accent}
+        fillOpacity=".05"
+        stroke={accent}
+        strokeOpacity=".28"
+      />
+
+      <rect
+        x="28"
+        y="31"
+        width="16"
+        height="2"
+        rx="1"
+        fill={accent}
+        fillOpacity=".35"
+      />
+
+      {/* NFC Card Center */}
+      <rect
+        x="75"
+        y="38"
+        width="70"
+        height="44"
+        rx="8"
+        fill={accent}
+        fillOpacity=".07"
+        stroke={accent}
+        strokeOpacity=".28"
+      />
+
+      <rect
+        x="86"
+        y="50"
+        width="30"
+        height="4"
+        rx="2"
+        fill={accent}
+        fillOpacity=".45"
+      />
+
+      <rect
+        x="86"
+        y="60"
+        width="20"
+        height="3"
+        rx="1.5"
+        fill={accent}
+        fillOpacity=".3"
+      />
+
+      {/* NFC Waves */}
+      <path
+        d="M120 54 C126 48,132 48,138 54"
+        stroke={accent}
+        strokeOpacity=".6"
+        strokeWidth="2"
+      />
+
+      <path
+        d="M124 60 C128 56,132 56,136 60"
+        stroke={accent}
+        strokeOpacity=".4"
+        strokeWidth="2"
+      />
+
+      {/* Right Phone */}
+      <rect
+        x="165"
+        y="25"
+        width="42"
+        height="80"
+        rx="8"
+        fill={accent}
+        fillOpacity=".05"
+        stroke={accent}
+        strokeOpacity=".28"
+      />
+
+      <rect
+        x="178"
+        y="31"
+        width="16"
+        height="2"
+        rx="1"
+        fill={accent}
+        fillOpacity=".35"
+      />
+
+      {/* Connection Waves Between Devices */}
+      <path
+        d="M58 65 Q75 45 92 65"
+        stroke={accent}
+        strokeOpacity=".25"
+        strokeWidth="1.5"
+      />
+
+      <path
+        d="M128 65 Q145 45 162 65"
+        stroke={accent}
+        strokeOpacity=".25"
+        strokeWidth="1.5"
+      />
+
+      {/* Floating Contact Nodes */}
+      {[
+        { x: 40, y: 110 },
+        { x: 75, y: 100 },
+        { x: 110, y: 110 },
+        { x: 145, y: 100 },
+        { x: 180, y: 110 },
+      ].map((n, i) => (
+        <circle
+          key={i}
+          cx={n.x}
+          cy={n.y}
+          r="3"
+          fill={accent}
+          fillOpacity=".35"
+        />
+      ))}
+
+      {/* Ground Line */}
+      <line
+        x1="0"
+        y1="120"
+        x2="220"
+        y2="120"
+        stroke={accent}
+        strokeOpacity=".2"
+      />
+    </svg>
+  );
+}
+
 // ─── Project data with explicit grid placement ─────────────────────────────
 
 const projects = [
@@ -215,6 +363,17 @@ const projects = [
     desktop: { col: "9 / 13", row: "9 / 15" },
     mobileClass: "min-h-[220px]",
   },
+  {
+  title: "TapConnect NFC",
+  category: "NFC Digital Business Cards",
+  description: "A modern NFC-powered digital business card platform that enables instant contact sharing through a simple tap or QR code scan. Features customizable profiles, social media integration, real-time updates, analytics tracking, and seamless networking for professionals and businesses.",
+  accent: "#00d4ff",
+  Graphic: NFCBusinessCardGraphic,
+  featured: false,
+  // Full-width bottom card with extra height for longer copy
+  desktop: { col: "1 / 13", row: "15 / 22" },
+  mobileClass: "min-h-[220px]",
+},
 ]
 
 // ─── Card component ────────────────────────────────────────────────────────
@@ -319,8 +478,9 @@ function Card({ project, index, isDark }: { project: Project; index: number; isD
         className="relative z-0 w-full overflow-hidden flex items-center justify-center"
         style={{
           flex: featured ? "1" : "0 0 auto",
-          minHeight: featured ? "180px" : "130px",
-          padding: featured ? "24px 24px 8px" : "16px 16px 6px",
+          minHeight: featured ? "150px" : "110px",
+          maxHeight: featured ? "220px" : "150px",
+          padding: featured ? "18px 20px 8px" : "12px 14px 6px",
         }}
       >
         <div

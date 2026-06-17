@@ -151,19 +151,6 @@ export function Footer() {
       </div>
 
       {/* ── Bottom branding ── */}
-      {/*
-        textLength="1200" = viewBox width → text fills 100% at every breakpoint.
-        No filter: crisp sharp glyphs exactly as in the reference image.
-        Gradient: dark navy (#0c1c35) → deep blue → sky blue → bright cyan → teal (#00e5b5)
-      */}
-      {/*
-        SVG fills 100vw via w-full; textLength="1200" = viewBox width forces
-        glyphs to span the full container regardless of screen width.
-        viewBox height 260, baseline y=228: cap-tops sit at ≈68px from top
-        (tight vertical breathing room), "p" descender clips at ≈268 → the
-        letterforms feel immersive, flush, and cinematic.
-        fontSize="230" gives ~276px rendered height at 1440px viewport.
-      */}
       <div className="w-full select-none overflow-hidden leading-none" aria-hidden>
         <svg
           viewBox="0 0 1200 360"
@@ -173,10 +160,6 @@ export function Footer() {
           aria-hidden="true"
         >
           <defs>
-            {/*
-              Gradient cloned from reference image:
-              dark navy (#0c1c35) → deep blue → sky blue → bright cyan → teal (#00e5b5)
-            */}
             <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%"   stopColor="#0c1c35" />
               <stop offset="16%"  stopColor="#1a3a6e" />
@@ -191,16 +174,19 @@ export function Footer() {
           <text
             x="600"
             y="318"
-            fontSize="318"
             textAnchor="middle"
             style={{
-              fontFamily: "var(--font-instrument-sans, 'Instrument Sans'), ui-sans-serif, system-ui, sans-serif",
+              fontFamily: "var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif",
               fontWeight: 700,
+              fontSize: "318px",
+              lineHeight: "24px",
+              letterSpacing: "normal",
+              fontStyle: "normal",
+              textDecoration: "none",
+              textTransform: "none",
             }}
-            textLength="1200"
-            lengthAdjust="spacingAndGlyphs"
+            
             fill="url(#brand-grad)"
-            letterSpacing="-6"
           >
             4loops
           </text>
