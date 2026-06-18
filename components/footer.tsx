@@ -20,10 +20,10 @@ const nav = [
   {
     heading: "Products",
     links: [
-      { label: "AI Assistant Pro",  href: "#" },
-      { label: "Analytics Hub",     href: "#" },
-      { label: "DocuFlow",          href: "#" },
-      { label: "CommUnify",         href: "#" },
+      { label: "AI Assistant Pro",  href: "/products/ai-assistant-pro" },
+      { label: "Analytics Hub",     href: "/products/analytics-hub" },
+      { label: "DocuFlow",          href: "/products/docuflow" },
+      { label: "CommUnify",         href: "/products/communify" },
     ],
   },
   {

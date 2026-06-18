@@ -1,18 +1,12 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useEffect } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Portfolio } from "@/components/portfolio"
 import { useTheme } from "next-themes"
-import { motion, useInView } from "framer-motion"
-import {
-  ArrowRight, Check, Star, TrendingUp, Users, Award, Globe,
-  Code2, Server, Smartphone, Cloud, Database,
-  Search, PenTool, Layers, TestTube, Rocket, Headphones,
-  Building2, Heart, ShoppingCart, GraduationCap, Truck, Monitor,
-  Banknote,
-} from "lucide-react"
+import { motion } from "framer-motion"
+import { ArrowRight, Star } from "lucide-react"
 import Link from "next/link"
 
 // ─── Theme helper (matching about page pattern) ────────────────────────────
@@ -42,39 +36,7 @@ const GRAD: React.CSSProperties = {
   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
 }
 
-// ─── Animated counter ──────────────────────────────────────────────────────
-
-function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-80px" })
-
-  useEffect(() => {
-    if (!isInView) return
-    const duration = 2000
-    const steps = 60
-    const stepValue = value / steps
-    const stepTime = duration / steps
-    let current = 0
-    const timer = setInterval(() => {
-      current += stepValue
-      if (current >= value) { setCount(value); clearInterval(timer) }
-      else setCount(Math.floor(current))
-    }, stepTime)
-    return () => clearInterval(timer)
-  }, [isInView, value])
-
-  return <span ref={ref} className="tabular-nums">{count}{suffix}</span>
-}
-
 // ─── Data ──────────────────────────────────────────────────────────────────
-
-const heroStats = [
-  { value: 50,  suffix: "+", label: "Projects Delivered" },
-  { value: 6,   suffix: "+", label: "Years of Experience" },
-  { value: 7,   suffix: "+", label: "Industries Served" },
-  { value: 98,  suffix: "%", label: "Client Satisfaction" },
-]
 
 const caseStudies = [
   {
@@ -116,67 +78,6 @@ const caseStudies = [
       { metric: "92%", label: "User satisfaction" },
     ],
   },
-]
-
-const industries = [
-  { name: "FinTech",            icon: Banknote,        accent: "#00d4ff", desc: "Digital payments, lending platforms, and financial analytics" },
-  { name: "Healthcare",        icon: Heart,            accent: "#2d9a7a", desc: "Patient management, telemedicine, and health informatics" },
-  { name: "E-Commerce",        icon: ShoppingCart,     accent: "#635BFF", desc: "Marketplaces, inventory systems, and omnichannel retail" },
-  { name: "Education",         icon: GraduationCap,    accent: "#4ade80", desc: "LMS platforms, AI tutoring, and student analytics" },
-  { name: "Logistics",         icon: Truck,            accent: "#FF9900", desc: "Route optimisation, fleet tracking, and warehouse management" },
-  { name: "Enterprise",        icon: Building2,        accent: "#5fb8e8", desc: "ERP systems, CRM solutions, and business automation" },
-  { name: "Real Estate",       icon: Monitor,          accent: "#f472b6", desc: "Property management, CRM, and listing platforms" },
-]
-
-const techStack = [
-  {
-    category: "Frontend",
-    accent: "#00d4ff",
-    icon: Code2,
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vue.js"],
-  },
-  {
-    category: "Backend",
-    accent: "#2d9a7a",
-    icon: Server,
-    items: ["Node.js", "Python", "Django", "FastAPI", "Frappe", "GraphQL"],
-  },
-  {
-    category: "Mobile",
-    accent: "#635BFF",
-    icon: Smartphone,
-    items: ["React Native", "Flutter", "Swift", "Kotlin", "Expo", "Capacitor"],
-  },
-  {
-    category: "Cloud & DevOps",
-    accent: "#FF9900",
-    icon: Cloud,
-    items: ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD", "Terraform"],
-  },
-  {
-    category: "Databases",
-    accent: "#4ade80",
-    icon: Database,
-    items: ["PostgreSQL", "MongoDB", "Redis", "MariaDB", "Elasticsearch", "Firebase"],
-  },
-]
-
-const processSteps = [
-  { num: "01", title: "Discovery & Planning",   icon: Search,     accent: "#00d4ff", desc: "Deep-dive workshops to understand your goals, constraints, and users. We map the full scope before writing a line of code." },
-  { num: "02", title: "Design",                 icon: PenTool,    accent: "#635BFF", desc: "Wireframes, prototypes, and UI design validated with real users. Every pixel serves a purpose." },
-  { num: "03", title: "Development",            icon: Layers,     accent: "#2d9a7a", desc: "Agile sprints with weekly demos. Clean, tested code built on modern frameworks." },
-  { num: "04", title: "Testing & QA",           icon: TestTube,   accent: "#FF9900", desc: "Automated and manual testing across devices, browsers, and edge cases. Security audits included." },
-  { num: "05", title: "Deployment",             icon: Rocket,     accent: "#4ade80", desc: "Zero-downtime deployments with monitoring, alerting, and rollback capability built in." },
-  { num: "06", title: "Ongoing Support",        icon: Headphones, accent: "#5fb8e8", desc: "Dedicated support, performance monitoring, and iterative improvements post-launch." },
-]
-
-const results = [
-  { value: 50,   suffix: "+", label: "Projects Delivered",       icon: Layers,     accent: "#00d4ff" },
-  { value: 98,   suffix: "%", label: "Client Satisfaction",      icon: Star,       accent: "#2d9a7a" },
-  { value: 340,  suffix: "%", label: "Average ROI",              icon: TrendingUp, accent: "#635BFF" },
-  { value: 30,   suffix: "+", label: "Expert Engineers",         icon: Users,      accent: "#FF9900" },
-  { value: 15,   suffix: "+", label: "Industry Awards",          icon: Award,      accent: "#4ade80" },
-  { value: 7,    suffix: "+", label: "Countries Served",         icon: Globe,      accent: "#5fb8e8" },
 ]
 
 const testimonials = [
@@ -245,29 +146,10 @@ export default function PortfolioPage() {
             <motion.p
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              style={{ fontSize: "clamp(15px,2vw,18px)", color: t.muted, lineHeight: 1.72, maxWidth: "620px", marginBottom: "48px" }}
+              style={{ fontSize: "clamp(15px,2vw,18px)", color: t.muted, lineHeight: 1.72, maxWidth: "620px" }}
             >
               From AI-powered platforms to enterprise ERP systems, explore how we have helped businesses across industries achieve measurable results and sustainable growth.
             </motion.p>
-
-            {/* Hero stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-6"
-            >
-              {heroStats.map((stat, i) => (
-                <div key={i} style={{
-                  padding: "20px 0",
-                  borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
-                }}>
-                  <p style={{ fontSize: "clamp(28px,4vw,42px)", fontWeight: 800, ...GRAD, marginBottom: "4px" }}>
-                    <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p style={{ fontSize: "13px", color: t.muted, fontWeight: 500 }}>{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
           </div>
         </section>
 
@@ -374,277 +256,6 @@ export default function PortfolioPage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════════════════════════════
-            INDUSTRIES WE SERVE
-        ════════════════════════════════════════════════════════════════ */}
-        <section style={{ padding: "80px 0", position: "relative" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <p style={{ ...MONO, marginBottom: "12px" }}>&#x2726; Industries</p>
-              <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, color: t.heading, letterSpacing: "-0.025em", marginBottom: "16px" }}>
-                Industries We{" "}
-                <span style={GRAD}>Serve</span>
-              </h2>
-              <p style={{ fontSize: "clamp(14px,1.6vw,17px)", color: t.muted, maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-                Deep domain expertise across sectors that demand reliability, security, and innovation.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {industries.map((ind, idx) => {
-                const Icon = ind.icon
-                return (
-                  <motion.div
-                    key={ind.name}
-                    initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.06 }}
-                    whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                    style={{
-                      borderRadius: "16px", padding: "24px 20px", position: "relative", overflow: "hidden",
-                      background: isDark
-                        ? "linear-gradient(145deg, rgba(8,14,32,0.93) 0%, rgba(4,9,22,0.97) 100%)"
-                        : "#ffffff",
-                      border: `1px solid ${isDark ? ind.accent + "1a" : "rgba(0,0,0,0.08)"}`,
-                      boxShadow: isDark
-                        ? "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03)"
-                        : "0 2px 16px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <div className="pointer-events-none absolute -top-10 -right-10 rounded-full" style={{
-                      width: "100px", height: "100px",
-                      background: `radial-gradient(circle, ${ind.accent}, transparent 70%)`,
-                      filter: "blur(30px)", opacity: 0.08,
-                    }} />
-                    <div style={{
-                      width: "40px", height: "40px", borderRadius: "12px",
-                      background: `${ind.accent}15`, border: `1px solid ${ind.accent}30`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      marginBottom: "14px",
-                    }}>
-                      <Icon size={20} style={{ color: ind.accent }} />
-                    </div>
-                    <p style={{ fontSize: "15px", fontWeight: 700, color: t.heading, marginBottom: "6px" }}>{ind.name}</p>
-                    <p style={{ fontSize: "12.5px", color: t.muted, lineHeight: 1.6 }}>{ind.desc}</p>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════════════════════════════
-            TECHNOLOGY EXPERTISE
-        ════════════════════════════════════════════════════════════════ */}
-        <section style={{ padding: "80px 0", position: "relative" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <p style={{ ...MONO, marginBottom: "12px" }}>&#x2726; Technology Stack</p>
-              <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, color: t.heading, letterSpacing: "-0.025em", marginBottom: "16px" }}>
-                Our Technology{" "}
-                <span style={GRAD}>Expertise</span>
-              </h2>
-              <p style={{ fontSize: "clamp(14px,1.6vw,17px)", color: t.muted, maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-                Modern tools and frameworks chosen for reliability, performance, and scalability.
-              </p>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-              {techStack.map((group, idx) => {
-                const Icon = group.icon
-                return (
-                  <motion.div
-                    key={group.category}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.08 }}
-                    style={{
-                      borderRadius: "16px", padding: "24px 20px", position: "relative", overflow: "hidden",
-                      background: isDark
-                        ? "linear-gradient(145deg, rgba(8,14,32,0.93) 0%, rgba(4,9,22,0.97) 100%)"
-                        : "#ffffff",
-                      border: `1px solid ${isDark ? group.accent + "1a" : "rgba(0,0,0,0.08)"}`,
-                      boxShadow: isDark
-                        ? "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03)"
-                        : "0 2px 16px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <div className="pointer-events-none absolute -top-10 -right-10 rounded-full" style={{
-                      width: "120px", height: "120px",
-                      background: `radial-gradient(circle, ${group.accent}, transparent 68%)`,
-                      filter: "blur(36px)", opacity: 0.07,
-                    }} />
-                    <div style={{
-                      width: "36px", height: "36px", borderRadius: "10px",
-                      background: `${group.accent}15`, border: `1px solid ${group.accent}30`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      marginBottom: "16px",
-                    }}>
-                      <Icon size={18} style={{ color: group.accent }} />
-                    </div>
-                    <p style={{ fontSize: "14px", fontWeight: 700, color: t.heading, marginBottom: "12px" }}>{group.category}</p>
-                    <div className="flex flex-col gap-2">
-                      {group.items.map((item) => (
-                        <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                          <div style={{
-                            width: "5px", height: "5px", borderRadius: "50%",
-                            background: group.accent, opacity: 0.6, flexShrink: 0,
-                          }} />
-                          <span style={{ fontSize: "12.5px", color: t.muted }}>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════════════════════════════
-            DEVELOPMENT PROCESS
-        ════════════════════════════════════════════════════════════════ */}
-        <section style={{ padding: "80px 0", position: "relative" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <p style={{ ...MONO, marginBottom: "12px" }}>&#x2726; Our Process</p>
-              <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, color: t.heading, letterSpacing: "-0.025em", marginBottom: "16px" }}>
-                How We{" "}
-                <span style={GRAD}>Build</span>
-              </h2>
-              <p style={{ fontSize: "clamp(14px,1.6vw,17px)", color: t.muted, maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-                A structured, transparent process designed for clarity and consistent delivery.
-              </p>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {processSteps.map((step, idx) => {
-                const Icon = step.icon
-                return (
-                  <motion.div
-                    key={step.num}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.08 }}
-                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    style={{
-                      borderRadius: "16px", padding: "28px 24px", position: "relative", overflow: "hidden",
-                      background: isDark
-                        ? "linear-gradient(145deg, rgba(8,14,32,0.93) 0%, rgba(4,9,22,0.97) 100%)"
-                        : "#ffffff",
-                      border: `1px solid ${isDark ? step.accent + "1a" : "rgba(0,0,0,0.08)"}`,
-                      boxShadow: isDark
-                        ? "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03)"
-                        : "0 2px 16px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <div className="pointer-events-none absolute -top-10 -right-10 rounded-full" style={{
-                      width: "120px", height: "120px",
-                      background: `radial-gradient(circle, ${step.accent}, transparent 68%)`,
-                      filter: "blur(36px)", opacity: 0.07,
-                    }} />
-
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                      <div style={{
-                        width: "40px", height: "40px", borderRadius: "12px",
-                        background: `${step.accent}15`, border: `1px solid ${step.accent}30`,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                      }}>
-                        <Icon size={20} style={{ color: step.accent }} />
-                      </div>
-                      <span style={{ ...MONO, color: step.accent, fontSize: "11px" }}>{step.num}</span>
-                    </div>
-                    <p style={{ fontSize: "16px", fontWeight: 700, color: t.heading, marginBottom: "8px" }}>{step.title}</p>
-                    <p style={{ fontSize: "13px", color: t.muted, lineHeight: 1.7 }}>{step.desc}</p>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════════════════════════════
-            RESULTS & IMPACT
-        ════════════════════════════════════════════════════════════════ */}
-        <section style={{ padding: "80px 0", position: "relative" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <p style={{ ...MONO, marginBottom: "12px" }}>&#x2726; Impact</p>
-              <h2 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, color: t.heading, letterSpacing: "-0.025em", marginBottom: "16px" }}>
-                Results &{" "}
-                <span style={GRAD}>Impact</span>
-              </h2>
-              <p style={{ fontSize: "clamp(14px,1.6vw,17px)", color: t.muted, maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-                Meaningful metrics that reflect the value we create for our clients.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {results.map((stat, idx) => {
-                const Icon = stat.icon
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.07 }}
-                    whileHover={{ y: -5, scale: 1.03, transition: { duration: 0.2 } }}
-                    className="text-center"
-                    style={{
-                      borderRadius: "16px", padding: "28px 16px", position: "relative", overflow: "hidden",
-                      background: isDark
-                        ? "linear-gradient(145deg, rgba(8,14,32,0.93) 0%, rgba(4,9,22,0.97) 100%)"
-                        : "#ffffff",
-                      border: `1px solid ${isDark ? stat.accent + "1a" : "rgba(0,0,0,0.08)"}`,
-                      boxShadow: isDark
-                        ? "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.03)"
-                        : "0 2px 16px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <div className="pointer-events-none absolute -top-8 -right-8 rounded-full" style={{
-                      width: "80px", height: "80px",
-                      background: `radial-gradient(circle, ${stat.accent}, transparent 68%)`,
-                      filter: "blur(28px)", opacity: 0.1,
-                    }} />
-                    <div style={{
-                      width: "36px", height: "36px", borderRadius: "10px",
-                      background: `${stat.accent}15`, border: `1px solid ${stat.accent}30`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      margin: "0 auto 14px",
-                    }}>
-                      <Icon size={18} style={{ color: stat.accent }} />
-                    </div>
-                    <p style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 800, ...GRAD }}>
-                      <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-                    </p>
-                    <p style={{ fontSize: "12px", color: t.muted, marginTop: "4px", fontWeight: 500 }}>{stat.label}</p>
-                  </motion.div>
-                )
-              })}
             </div>
           </div>
         </section>
