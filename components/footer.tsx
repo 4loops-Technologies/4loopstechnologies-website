@@ -13,7 +13,7 @@ const nav = [
     links: [
       { label: "Docs",       href: "#" },
       { label: "GitHub",     href: "#" },
-      { label: "Portfolio",  href: "#portfolio" },
+      { label: "Portfolio",  href: "/portfolio" },
       { label: "Blog",       href: "#" },
     ],
   },
@@ -185,7 +185,6 @@ export function Footer() {
               textDecoration: "none",
               textTransform: "none",
             }}
-            
             fill="url(#brand-grad)"
           >
             4loops

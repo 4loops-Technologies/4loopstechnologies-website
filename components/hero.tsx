@@ -61,7 +61,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="mt-10 flex justify-center"
         >
-          <a href="#portfolio">
+          <a href="/portfolio">
             <Button
               size="lg"
               variant="outline"

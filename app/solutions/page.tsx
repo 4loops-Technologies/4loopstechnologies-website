@@ -549,7 +549,7 @@ export default function SolutionsPage() {
                   Start a Project <ArrowRight size={16} />
                 </Link>
                 <Link
-                  href="/#portfolio"
+                  href="/portfolio"
                   style={{ display:"inline-flex", alignItems:"center", gap:"8px", padding:"12px 26px", borderRadius:"12px", background:isDark?"rgba(255,255,255,0.05)":"rgba(0,0,0,0.04)", border:`1px solid ${isDark?"rgba(255,255,255,0.14)":"rgba(0,0,0,0.12)"}`, color:isDark?"rgba(226,232,240,0.85)":t.heading, fontWeight:600, fontSize:"15px", textDecoration:"none", transition:"border-color 0.2s ease,background 0.2s ease,transform 0.2s ease" }}
                   onMouseEnter={(e) => { const el=e.currentTarget as HTMLElement; el.style.borderColor="rgba(0,212,255,0.4)"; el.style.background="rgba(0,212,255,0.06)"; el.style.transform="translateY(-2px)" }}
                   onMouseLeave={(e) => { const el=e.currentTarget as HTMLElement; el.style.borderColor=isDark?"rgba(255,255,255,0.14)":"rgba(0,0,0,0.12)"; el.style.background=isDark?"rgba(255,255,255,0.05)":"rgba(0,0,0,0.04)"; el.style.transform="translateY(0)" }}
