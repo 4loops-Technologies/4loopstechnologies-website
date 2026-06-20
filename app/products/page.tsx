@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -8,6 +9,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, Check, Zap, Shield, Globe, Headphones } from "lucide-react"
 import Link from "next/link"
 import { products } from "@/lib/products"
+import type { Product } from "@/lib/products"
 
 function th(isDark: boolean) {
   return {
@@ -16,8 +18,6 @@ function th(isDark: boolean) {
     heading:   isDark ? "#f1f5f9"                    : "#0f172a",
     muted:     isDark ? "rgba(226,232,240,0.58)"     : "rgba(15,23,42,0.58)",
     mutedMore: isDark ? "rgba(226,232,240,0.38)"     : "rgba(15,23,42,0.38)",
-    cardBg:    isDark ? "rgba(255,255,255,0.03)"     : "rgba(0,0,0,0.025)",
-    cardBdr:   isDark ? "rgba(255,255,255,0.07)"     : "rgba(0,0,0,0.09)",
     sep:       isDark ? "rgba(255,255,255,0.05)"     : "rgba(0,0,0,0.07)",
     tagBg:     isDark ? "rgba(255,255,255,0.05)"     : "rgba(0,0,0,0.04)",
     tagBdr:    isDark ? "rgba(255,255,255,0.09)"     : "rgba(0,0,0,0.08)",
@@ -43,6 +43,100 @@ const benefits = [
   { icon: Globe,      accent: "#2d9a7a", title: "Local-First Design",        desc: "Amharic language support, offline capability, and optimised for variable connectivity." },
   { icon: Headphones, accent: "#4ade80", title: "Dedicated Support",         desc: "Dedicated account managers, SLA-backed response times, and ongoing product training." },
 ]
+
+function ProductMockup({ product, isDark }: { product: Product; isDark: boolean }) {
+  const a = product.accent
+
+  if (product.image) {
+    return (
+      <div style={{
+        width: "100%", aspectRatio: "4 / 3", borderRadius: "16px", overflow: "hidden", position: "relative",
+        background: isDark
+          ? `linear-gradient(160deg, #07101f 0%, ${a}12 100%)`
+          : `linear-gradient(160deg, #ffffff 0%, ${a}08 100%)`,
+        border: `1px solid ${a}${isDark ? "28" : "22"}`,
+        boxShadow: isDark
+          ? `0 0 60px ${a}10, inset 0 0 80px ${a}06`
+          : `0 4px 40px rgba(0,0,0,0.06), 0 0 0 1px ${a}14`,
+      }}>
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          sizes="(max-width: 768px) 100vw, 45vw"
+          className="object-cover"
+        />
+      </div>
+    )
+  }
+
+  return (
+    <div style={{
+      width: "100%", aspectRatio: "4 / 3", borderRadius: "16px", overflow: "hidden", position: "relative",
+      background: isDark
+        ? `linear-gradient(160deg, #07101f 0%, ${a}12 100%)`
+        : `linear-gradient(160deg, #ffffff 0%, ${a}08 100%)`,
+      border: `1px solid ${a}${isDark ? "28" : "22"}`,
+      boxShadow: isDark
+        ? `0 0 60px ${a}10, inset 0 0 80px ${a}06`
+        : `0 4px 40px rgba(0,0,0,0.06), 0 0 0 1px ${a}14`,
+    }}>
+      {/* Grid overlay */}
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: `linear-gradient(${a}${isDark ? "08" : "05"} 1px, transparent 1px), linear-gradient(90deg, ${a}${isDark ? "08" : "05"} 1px, transparent 1px)`,
+        backgroundSize: "24px 24px", pointerEvents: "none",
+      }} />
+      {/* Centre glow */}
+      <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"200px", height:"200px", borderRadius:"50%", background:`radial-gradient(circle,${a}${isDark?"20":"12"},transparent 70%)`, filter:"blur(30px)", pointerEvents:"none" }} />
+
+      {/* Mockup UI elements */}
+      <div style={{ position: "relative", zIndex: 1, padding: "clamp(20px,3vw,32px)", height: "100%", display: "flex", flexDirection: "column" }}>
+        {/* Top bar */}
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "16px" }}>
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: `${a}55` }} />
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: `${a}33` }} />
+          <div style={{ width: 8, height: 8, borderRadius: "50%", background: `${a}22` }} />
+          <div style={{ flex: 1 }} />
+          <div style={{ width: "60px", height: "6px", borderRadius: "3px", background: `${a}20` }} />
+        </div>
+
+        {/* Content blocks */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "10px" }}>
+          <div style={{ width: "70%", height: "10px", borderRadius: "5px", background: `${a}28` }} />
+          <div style={{ width: "45%", height: "8px", borderRadius: "4px", background: `${a}18` }} />
+
+          {/* Metric cards row */}
+          <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
+            {[0.9, 0.65, 0.45].map((o, i) => (
+              <div key={i} style={{
+                flex: 1, borderRadius: "8px", padding: "10px",
+                background: `${a}${isDark ? "0c" : "08"}`, border: `1px solid ${a}18`,
+              }}>
+                <div style={{ width: "50%", height: "14px", borderRadius: "4px", background: a, opacity: o * 0.5, marginBottom: "6px" }} />
+                <div style={{ width: "80%", height: "6px", borderRadius: "3px", background: `${a}15` }} />
+              </div>
+            ))}
+          </div>
+
+          {/* Chart placeholder */}
+          <div style={{ flex: 1, minHeight: 0, borderRadius: "10px", background: `${a}${isDark ? "08" : "05"}`, border: `1px solid ${a}12`, position: "relative", overflow: "hidden", marginTop: "4px" }}>
+            <svg viewBox="0 0 300 100" fill="none" style={{ width: "100%", height: "100%", position: "absolute", inset: 0 }} aria-hidden>
+              <polyline
+                points="0,80 40,60 80,70 120,30 160,45 200,20 240,35 280,15 300,25"
+                stroke={a} strokeWidth="2" strokeOpacity="0.6" fill="none"
+              />
+              <polyline
+                points="0,80 40,60 80,70 120,30 160,45 200,20 240,35 280,15 300,25 300,100 0,100"
+                fill={a} fillOpacity="0.06"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function ProductsPage() {
   const { resolvedTheme } = useTheme()
@@ -89,22 +183,21 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* ── Product Grid ── */}
+        {/* ── Product List — image left, content right ── */}
         <section style={{ padding: "0 0 80px" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-10">
               {products.map((product, idx) => {
                 const Icon = product.icon
                 return (
                   <motion.div
                     key={product.slug}
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 28 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.55, delay: idx * 0.08 }}
-                    whileHover={{ y: -6, transition: { duration: 0.22 } }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.6, delay: idx * 0.08 }}
                     style={{
-                      borderRadius: "20px", padding: "clamp(28px,4vw,40px)", position: "relative", overflow: "hidden",
+                      borderRadius: "20px", overflow: "hidden", position: "relative",
                       background: isDark
                         ? "linear-gradient(145deg, rgba(8,14,32,0.95) 0%, rgba(4,10,24,0.98) 100%)"
                         : "#ffffff",
@@ -116,51 +209,68 @@ export default function ProductsPage() {
                     }}
                   >
                     {/* Corner bloom */}
-                    <div className="pointer-events-none absolute -top-14 -right-14 rounded-full" style={{
-                      width: "180px", height: "180px",
+                    <div className="pointer-events-none absolute -top-16 -right-16 rounded-full" style={{
+                      width: "200px", height: "200px",
                       background: `radial-gradient(circle, ${product.accent}, transparent 68%)`,
-                      filter: "blur(45px)", opacity: 0.1,
+                      filter: "blur(50px)", opacity: 0.1,
                     }} />
 
-                    {/* Number */}
-                    <div className="pointer-events-none absolute top-6 right-8" style={{
-                      fontSize: "72px", fontWeight: 800, lineHeight: 1,
-                      color: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)",
-                    }}>
-                      0{idx + 1}
+                    {/* Two-column: image left + content right */}
+                    <div className="flex flex-col md:flex-row">
+                      {/* Left — product mockup */}
+                      <div className="md:w-[45%] p-5 md:p-8 flex-shrink-0">
+                        <ProductMockup product={product} isDark={isDark} />
+                      </div>
+
+                      {/* Right — content */}
+                      <div className="flex-1 p-6 md:p-8 md:pl-0 flex flex-col justify-center">
+                        {/* Number */}
+                        <div className="pointer-events-none absolute top-6 right-8 hidden md:block" style={{
+                          fontSize: "72px", fontWeight: 800, lineHeight: 1,
+                          color: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)",
+                        }}>
+                          0{idx + 1}
+                        </div>
+
+                        {/* Icon + name */}
+                        <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "10px" }}>
+                          <div style={{
+                            width: "44px", height: "44px", borderRadius: "12px",
+                            background: `${product.accent}15`, border: `1px solid ${product.accent}30`,
+                            display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                          }}>
+                            <Icon size={22} style={{ color: product.accent }} />
+                          </div>
+                          <div>
+                            <h3 style={{ fontSize: "22px", fontWeight: 700, color: t.heading, lineHeight: 1.2 }}>{product.name}</h3>
+                            <p style={{ fontSize: "13px", fontWeight: 600, color: product.accent, letterSpacing: "0.02em", marginTop: "2px" }}>{product.tagline}</p>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p style={{ fontSize: "14.5px", color: t.muted, lineHeight: 1.72, marginBottom: "18px", maxWidth: "480px" }}>
+                          {product.description}
+                        </p>
+
+                        {/* Highlights */}
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {product.highlights.map((h) => (
+                            <span key={h} style={{
+                              fontSize: "11.5px", fontWeight: 600, padding: "4px 10px", borderRadius: "8px",
+                              background: t.tagBg, border: `1px solid ${t.tagBdr}`, color: t.tagColor,
+                            }}>{h}</span>
+                          ))}
+                        </div>
+
+                        {/* CTA */}
+                        <Link
+                          href={`/products/${product.slug}`}
+                          style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "13px", fontWeight: 600, color: product.accent, textDecoration: "none" }}
+                        >
+                          Learn more <ArrowRight size={14} />
+                        </Link>
+                      </div>
                     </div>
-
-                    {/* Icon */}
-                    <div style={{
-                      width: "52px", height: "52px", borderRadius: "14px",
-                      background: `${product.accent}15`, border: `1px solid ${product.accent}30`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      marginBottom: "20px",
-                    }}>
-                      <Icon size={26} style={{ color: product.accent }} />
-                    </div>
-
-                    <h3 style={{ fontSize: "22px", fontWeight: 700, color: t.heading, marginBottom: "8px" }}>{product.name}</h3>
-                    <p style={{ fontSize: "13px", fontWeight: 600, color: product.accent, marginBottom: "14px", letterSpacing: "0.02em" }}>{product.tagline}</p>
-                    <p style={{ fontSize: "14.5px", color: t.muted, lineHeight: 1.72, marginBottom: "20px" }}>{product.description.slice(0, 160)}...</p>
-
-                    {/* Highlights */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {product.highlights.map((h) => (
-                        <span key={h} style={{
-                          fontSize: "11.5px", fontWeight: 600, padding: "4px 10px", borderRadius: "8px",
-                          background: t.tagBg, border: `1px solid ${t.tagBdr}`, color: t.tagColor,
-                        }}>{h}</span>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    <Link
-                      href={`/products/${product.slug}`}
-                      style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "13px", fontWeight: 600, color: product.accent, textDecoration: "none" }}
-                    >
-                      Learn more <ArrowRight size={14} />
-                    </Link>
                   </motion.div>
                 )
               })}
@@ -230,7 +340,7 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* ── All products uptime banner ── */}
+        {/* ── Uptime banner ── */}
         <section style={{ padding: "0 24px 40px" }}>
           <div style={{
             maxWidth: "1280px", margin: "0 auto",

@@ -86,8 +86,6 @@ export function ServicesCarousel() {
   return (
     <div
       className="relative w-full overflow-hidden py-20"
-      onMouseEnter={() => setIsAutoplay(false)}
-      onMouseLeave={() => setIsAutoplay(true)}
     >
       {/* Left fade overlay */}
       <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-background via-background/30 to-transparent z-40 pointer-events-none backdrop-blur-lg" />

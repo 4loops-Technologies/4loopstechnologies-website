@@ -1,4 +1,4 @@
-import { Bot, FileText, LineChart, MessageSquare } from "lucide-react"
+import { Bot, CreditCard, FileText, LineChart, MessageSquare } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 export type ProductFeature = {
@@ -19,6 +19,7 @@ export type Product = {
   icon: LucideIcon
   accent: string
   gradient: string
+  image?: string
   features: ProductFeature[]
   highlights: string[]
   techStack: string[]
@@ -153,6 +154,39 @@ export const products: Product[] = [
       { question: "Does it work offline?", answer: "Messages are queued when offline and synced when connectivity returns. Offline access to recent files is supported." },
       { question: "Can it replace Slack and Zoom?", answer: "Yes. CommUnify combines the best of messaging, video, and file collaboration into a single platform with lower total cost." },
       { question: "Is it available on mobile?", answer: "Native iOS and Android apps with full feature parity, plus a responsive web app for any browser." },
+    ],
+  },
+  {
+    slug: "nfc-business-card",
+    name: "TapConnect NFC",
+    tagline: "NFC-powered digital business cards",
+    description:
+      "A modern NFC-powered digital business card platform that enables instant contact sharing through a simple tap or QR code scan. Replace paper cards with a customisable digital profile that updates in real-time, tracks engagement analytics, and integrates with your CRM.",
+    icon: CreditCard,
+    accent: "#f59e0b",
+    gradient: "from-[#f59e0b] to-[#ef4444]",
+    image: "/products/NFC.png",
+    features: [
+      { title: "Tap-to-Share", description: "Share your full contact profile instantly by tapping your NFC card against any smartphone — no app required for the recipient." },
+      { title: "Custom Digital Profiles", description: "Fully branded profile pages with your photo, bio, social links, portfolio, and any custom fields your business needs." },
+      { title: "Real-Time Updates", description: "Change your job title, phone number, or links anytime — every card and QR code automatically reflects the latest info." },
+      { title: "Engagement Analytics", description: "Track who viewed your profile, which links they clicked, and when — with exportable reports and CRM sync." },
+      { title: "QR Code Fallback", description: "Every profile includes a unique QR code for situations where NFC is not available — works on any device with a camera." },
+      { title: "Team Management", description: "Admin dashboard to provision, manage, and brand cards for entire teams with role-based access and bulk operations." },
+    ],
+    highlights: ["Instant NFC Sharing", "QR Code Fallback", "Real-Time Updates", "Analytics Dashboard"],
+    techStack: ["React Native", "Next.js", "Node.js", "NFC APIs", "PostgreSQL", "Stripe"],
+    useCases: [
+      "Networking at conferences and industry events",
+      "Sales teams sharing contact details during client meetings",
+      "Corporate onboarding with branded digital cards for new hires",
+      "Real estate agents sharing listings alongside contact info",
+    ],
+    faqs: [
+      { question: "Do recipients need an app?", answer: "No. Tapping the NFC card opens your digital profile directly in the recipient's browser. No downloads required." },
+      { question: "What phones support NFC?", answer: "All iPhones from iPhone 7 onward and virtually all Android phones manufactured after 2018 support NFC reading." },
+      { question: "Can I customise the card design?", answer: "Yes. Physical cards are available in multiple materials (PVC, metal, bamboo) with full-colour custom printing on both sides." },
+      { question: "How does team management work?", answer: "Admins can create profiles, assign cards, enforce brand guidelines, and revoke access from a single dashboard." },
     ],
   },
 ]

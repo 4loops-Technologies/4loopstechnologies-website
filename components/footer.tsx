@@ -24,6 +24,7 @@ const nav = [
       { label: "Analytics Hub",     href: "/products/analytics-hub" },
       { label: "DocuFlow",          href: "/products/docuflow" },
       { label: "CommUnify",         href: "/products/communify" },
+      { label: "TapConnect NFC",    href: "/products/nfc-business-card" },
     ],
   },
   {

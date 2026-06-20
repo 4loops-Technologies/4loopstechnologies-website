@@ -16,9 +16,6 @@ const STYLES = `
     animation: scroll-ltr 28s linear infinite;
     will-change: transform;
   }
-  .marquee-root:hover .marquee-track {
-    animation-play-state: paused;
-  }
   .logo-float {
     animation: logo-float 3.6s ease-in-out infinite;
   }

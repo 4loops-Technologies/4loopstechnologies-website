@@ -75,36 +75,36 @@ export function Header() {
         className="w-[88%] h-[74px] flex items-center justify-between px-[30px] py-[8px] rounded-[20px] group"
         style={navStyle}
       >
-        {/* Logo — always routes to landing page; ~2× visual scale inside fixed navbar height */}
+        {/* Logo — always routes to landing page */}
         <Link
           href="/"
-          className="relative flex flex-col items-start flex-shrink-0 group/logo leading-none py-0 -my-1"
+          className="relative flex flex-col items-center justify-center flex-shrink-0 group/logo leading-none"
         >
           <span
             aria-hidden
             className="pointer-events-none absolute -left-1.5 -right-2.5 -top-0.5 -bottom-0.5 -z-10 rounded-2xl"
             style={{
               background: isDark
-                ? "radial-gradient(ellipse 95% 90% at 38% 48%, rgba(45, 154, 122, 0.38) 0%, rgba(0, 212, 255, 0.09) 40%, transparent 70%)"
-                : "radial-gradient(ellipse 95% 90% at 38% 48%, rgba(45, 154, 122, 0.22) 0%, rgba(0, 212, 255, 0.06) 40%, transparent 70%)",
+                ? "radial-gradient(ellipse 95% 90% at 50% 50%, rgba(45, 154, 122, 0.38) 0%, rgba(0, 212, 255, 0.09) 40%, transparent 70%)"
+                : "radial-gradient(ellipse 95% 90% at 50% 50%, rgba(45, 154, 122, 0.22) 0%, rgba(0, 212, 255, 0.06) 40%, transparent 70%)",
               boxShadow: isDark
                 ? "0 0 28px rgba(45, 154, 122, 0.22), 0 0 12px rgba(0, 212, 255, 0.06)"
                 : "0 0 22px rgba(45, 154, 122, 0.14), 0 0 10px rgba(0, 212, 255, 0.04)",
               filter: "blur(14px)",
             }}
           />
-          <div className="relative h-[50px] overflow-hidden flex items-center">
+          <div className="relative h-[42px] overflow-hidden flex items-center justify-center">
             <Image
               src="/logo.png"
               alt="4loops Technologies"
               width={312}
               height={156}
-              className="h-[108px] w-auto max-w-none shrink-0 transition-all duration-300 group-hover/logo:scale-[1.03] dark:drop-shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover/logo:dark:drop-shadow-[0_0_25px_rgba(0,212,255,0.5)]"
+              className="h-[96px] w-auto max-w-none shrink-0 transition-all duration-300 group-hover/logo:scale-[1.03] dark:drop-shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover/logo:dark:drop-shadow-[0_0_25px_rgba(0,212,255,0.5)]"
               priority
             />
           </div>
           <span
-            className={`text-[8px] font-semibold tracking-[0.22em] uppercase -mt-1 ml-0.5 transition-colors duration-300 ${
+            className={`text-[7.5px] font-semibold tracking-[0.22em] uppercase mt-[1px] text-center transition-colors duration-300 ${
               isDark ? "text-white/35 group-hover/logo:text-white/55" : "text-foreground/40 group-hover/logo:text-foreground/60"
             }`}
           >

@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/products/analytics-hub`,       lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/products/docuflow`,            lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/products/communify`,           lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/products/nfc-business-card`,  lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/solutions`,                    lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/portfolio`,                    lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/about`,                        lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
