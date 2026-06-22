@@ -1,26 +1,25 @@
-"use client"
-
 import Image from "next/image"
-import { motion } from "framer-motion"
-import { ServicesCarousel } from "@/components/services-carousel"
-import { StatsSection } from "@/components/stats-section"
+import dynamic from "next/dynamic"
+
+const StatsSection = dynamic(
+  () => import("@/components/stats-section").then((mod) => ({ default: mod.StatsSection })),
+  { ssr: true }
+)
+
+const ServicesCarousel = dynamic(
+  () => import("@/components/services-carousel").then((mod) => ({ default: mod.ServicesCarousel })),
+  { loading: () => <div className="min-h-[550px]" /> }
+)
 
 export function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-neon-blue/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-forest-green/5 rounded-full blur-3xl" />
+    <section id="about" aria-label="About 4loops Technologies — software engineering company in Ethiopia" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-neon-blue/5 rounded-full blur-3xl" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-forest-green/5 rounded-full blur-3xl" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* About content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 text-balance">
               Building the Future of{" "}
               <span className="bg-gradient-to-r from-neon-blue to-forest-green bg-clip-text text-transparent">
@@ -28,26 +27,21 @@ export function About() {
               </span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              4loops Technologies is a forward-thinking software company dedicated to transforming 
-              businesses through innovative technology solutions. Since 2019, we have been at the 
-              forefront of digital transformation, helping organizations across industries achieve 
-              their goals with cutting-edge software and AI-powered systems.
+              4loops Technologies is a trusted software engineering company dedicated to transforming
+              businesses through innovative technology solutions. Since 2019, we have been at the
+              forefront of digital transformation in Ethiopia and East Africa, helping organizations
+              across industries achieve their goals with custom software, AI-powered systems, and
+              enterprise-grade cloud infrastructure.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Our team of expert developers, designers, and strategists work collaboratively to 
-              deliver solutions that are not only technically excellent but also aligned with 
-              your business objectives. We believe in the power of technology to create meaningful 
-              impact and drive sustainable growth.
+              Our team of expert software engineers, designers, and technology consultants work
+              collaboratively to deliver solutions that are not only technically excellent but also
+              aligned with your business objectives. We combine modern technology stack proficiency
+              with deep industry knowledge to create meaningful impact and drive sustainable growth.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="relative aspect-square">
               <div
                 aria-hidden
@@ -64,36 +58,29 @@ export function About() {
               >
                 <Image
                   src="/about-digital-innovation.png"
-                  alt="Glowing 4loops chip held between fingertips, representing digital innovation"
+                  alt="4loops Technologies digital innovation — custom software development and AI solutions for enterprise"
                   width={1024}
                   height={957}
                   className="h-full w-full object-cover scale-[1.05]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Stats Section */}
         <StatsSection />
 
-        {/* Services Carousel */}
         <div id="solutions">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
+          <div className="text-center mb-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance">
-              Comprehensive Solutions for{" "}
+              Comprehensive Technology Solutions for{" "}
               <span className="bg-gradient-to-r from-neon-blue to-forest-green bg-clip-text text-transparent">
-                Every Challenge
+                Every Business Challenge
               </span>
             </h2>
-          </motion.div>
+          </div>
 
           <ServicesCarousel />
         </div>

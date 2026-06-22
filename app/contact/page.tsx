@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, ArrowRight, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
@@ -516,6 +517,7 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   )
 }

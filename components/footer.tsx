@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Code2, MessageSquare, Briefcase, Play } from "lucide-react"
+import { Briefcase } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 
@@ -11,10 +11,9 @@ const nav = [
   {
     heading: "Highlights",
     links: [
-      { label: "Docs",       href: "#" },
-      { label: "GitHub",     href: "#" },
       { label: "Portfolio",  href: "/portfolio" },
-      { label: "Blog",       href: "#" },
+      { label: "Products",   href: "/products" },
+      { label: "Solutions",  href: "/solutions" },
     ],
   },
   {
@@ -30,37 +29,25 @@ const nav = [
   {
     heading: "Solutions",
     links: [
-      { label: "Custom Software",        href: "#" },
-      { label: "AI & Machine Learning",  href: "#" },
-      { label: "Cloud Solutions",        href: "#" },
-      { label: "Web & Mobile Apps",      href: "#" },
-      { label: "Cybersecurity",          href: "#" },
-      { label: "Digital Transformation", href: "#" },
+      { label: "Custom Software",        href: "/solutions" },
+      { label: "AI & Machine Learning",  href: "/solutions" },
+      { label: "Cloud & DevOps",         href: "/solutions" },
+      { label: "Mobile Development",     href: "/solutions" },
+      { label: "Cybersecurity",          href: "/solutions" },
+      { label: "Digital Transformation", href: "/solutions" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About Us",  href: "#about" },
-      { label: "Careers",   href: "#" },
-      { label: "Contact",   href: "#contact" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy Policy",   href: "#" },
-      { label: "Terms of Service", href: "#" },
-      { label: "Cookie Policy",    href: "#" },
+      { label: "About Us",  href: "/about" },
+      { label: "Contact",   href: "/contact" },
     ],
   },
 ]
 
 const social = [
-  { label: "GitHub",   href: "#", Icon: Code2 },
-  { label: "Twitter",  href: "#", Icon: MessageSquare },
-  { label: "LinkedIn", href: "#", Icon: Briefcase },
-  { label: "YouTube",  href: "#", Icon: Play },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/4loops-technologies", Icon: Briefcase },
 ]
 
 // ─── Footer ───────────────────────────────────────────────────────────────

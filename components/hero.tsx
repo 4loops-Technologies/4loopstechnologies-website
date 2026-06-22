@@ -1,67 +1,60 @@
-"use client"
-
-import { motion } from "framer-motion"
 import { Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Hero() {
   return (
     <section
       id="home"
-      aria-label="Hero section"
+      aria-label="Hero — Custom Software Development and AI Solutions by 4loops Technologies"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mb-6"
-        >
+        <div className="animate-fade-up flex justify-center mb-6">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-sm font-medium text-muted-foreground border border-border">
-            <Sparkles className="h-4 w-4 text-neon-blue" />
-            Innovation Since 2019
+            <Sparkles className="h-4 w-4 text-neon-blue" aria-hidden="true" />
+            Software Engineering Since 2019
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance"
+        <h1
+          className="animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance"
+          style={{ animationDelay: "150ms" }}
         >
-          <span className="text-foreground">Transform Your Business</span>
+          <span className="text-foreground">Custom Software Development</span>
           <br />
           <span className="bg-gradient-to-r from-neon-blue via-light-blue to-forest-green bg-clip-text text-transparent">
-            with Cutting-Edge Technology
+            & AI Solutions for Enterprise
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-8 text-lg sm:text-xl md:text-2xl font-semibold text-foreground"
+        <p
+          className="animate-fade-up mt-8 text-lg sm:text-xl md:text-2xl font-semibold text-foreground"
+          style={{ animationDelay: "200ms" }}
         >
           4loops Technologies
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-2 text-lg sm:text-xl md:text-2xl font-medium text-black dark:text-white"
+        <p
+          className="animate-fade-up mt-2 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+          style={{ animationDelay: "250ms" }}
         >
-          Smart Solutions . Infinite Possibilities
-        </motion.p>
+          We build AI-powered software, cloud infrastructure, and enterprise systems that help businesses across Ethiopia and East Africa scale with confidence.
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-10 flex justify-center"
+        <div
+          className="animate-fade-up mt-10 flex flex-wrap justify-center gap-4"
+          style={{ animationDelay: "300ms" }}
         >
-          <a href="/portfolio">
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="px-8 h-12 text-base bg-[#00e676] text-[#022010] font-semibold hover:bg-[#1aed88] shadow-[0_0_48px_rgba(0,230,118,0.42)]"
+            >
+              Start a Project
+            </Button>
+          </Link>
+          <Link href="/portfolio">
             <Button
               size="lg"
               variant="outline"
@@ -69,8 +62,8 @@ export function Hero() {
             >
               View Our Work
             </Button>
-          </a>
-        </motion.div>
+          </Link>
+        </div>
       </div>
     </section>
   )

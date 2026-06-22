@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
@@ -22,21 +21,14 @@ export function FeaturedProjects() {
   const tagBdr    = isDark ? "rgba(255,255,255,0.09)"     : "rgba(0,0,0,0.08)"
 
   return (
-    <section id="portfolio" className="relative py-24 sm:py-32 overflow-hidden bg-background"
+    <section id="portfolio" aria-label="Featured software development projects by 4loops Technologies" className="relative py-24 sm:py-32 overflow-hidden bg-background"
       style={isDark ? {
         background: "linear-gradient(to bottom, transparent 0%, #04091a 6%, #04091a 94%, transparent 100%)",
       } : undefined}
     >
       <div className="relative z-10 mx-auto max-w-[960px] px-4 sm:px-6 lg:px-8">
 
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <p style={{
             fontFamily: "ui-monospace,'Courier New',monospace",
             fontSize: "12px", fontWeight: 600,
@@ -52,20 +44,12 @@ export function FeaturedProjects() {
               Projects
             </span>
           </h2>
-        </motion.div>
+        </div>
 
-        {/* Top border */}
         <div style={{ height: "1px", background: sep }} />
 
-        {/* Project rows */}
-        {featuredProjects.map((project, idx) => (
-          <motion.div
-            key={project.name}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: idx * 0.08 }}
-          >
+        {featuredProjects.map((project) => (
+          <div key={project.name}>
             <div
               className="group"
               style={{
@@ -76,7 +60,6 @@ export function FeaturedProjects() {
                 borderBottom: `1px solid ${sep}`,
               }}
             >
-              {/* Logo — left */}
               <div style={{
                 width: "clamp(60px, 9vw, 88px)",
                 height: "clamp(60px, 9vw, 88px)",
@@ -95,15 +78,15 @@ export function FeaturedProjects() {
               >
                 <Image
                   src={project.logo}
-                  alt={project.name}
+                  alt={`${project.name} logo — ${project.industry} project`}
                   width={72}
                   height={72}
                   className="object-contain"
                   style={{ maxWidth: "100%", maxHeight: "100%", filter: isDark ? "brightness(0.9)" : "none" }}
+                  loading="lazy"
                 />
               </div>
 
-              {/* Content — right */}
               <div style={{ flex: 1, minWidth: 0 }}>
                 <span style={{
                   fontSize: "11px", fontWeight: 600,
@@ -127,17 +110,10 @@ export function FeaturedProjects() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
 
-        {/* View All Work CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 flex justify-center"
-        >
+        <div className="mt-10 flex justify-center">
           <Link
             href="/portfolio"
             style={{
@@ -149,13 +125,10 @@ export function FeaturedProjects() {
               fontWeight: 600, fontSize: "15px", textDecoration: "none",
               transition: "border-color 0.2s, background 0.2s, transform 0.2s",
             }}
-            onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "rgba(0,212,255,0.4)"; el.style.background = "rgba(0,212,255,0.06)"; el.style.transform = "translateY(-2px)" }}
-            onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.11)"; el.style.background = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"; el.style.transform = "translateY(0)" }}
           >
             View All Work <ArrowRight size={16} />
           </Link>
-        </motion.div>
-
+        </div>
       </div>
     </section>
   )

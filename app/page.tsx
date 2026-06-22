@@ -1,10 +1,18 @@
+import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Partnerships } from "@/components/partnerships"
 import { About } from "@/components/about"
-import { FeaturedProjects } from "@/components/featured-projects"
-import { Testimonials } from "@/components/testimonials"
 import { Footer } from "@/components/footer"
+
+const FeaturedProjects = dynamic(
+  () => import("@/components/featured-projects").then((mod) => ({ default: mod.FeaturedProjects })),
+  { ssr: true }
+)
+const Testimonials = dynamic(
+  () => import("@/components/testimonials").then((mod) => ({ default: mod.Testimonials })),
+  { ssr: true }
+)
 
 export default function Home() {
   return (

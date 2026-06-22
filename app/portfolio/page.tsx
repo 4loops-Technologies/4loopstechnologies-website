@@ -126,7 +126,7 @@ export default function PortfolioPage() {
                   >
                     <Image
                       src={project.logo}
-                      alt={project.name}
+                      alt={`${project.name} — ${project.industry} project by 4loops Technologies`}
                       width={80}
                       height={80}
                       className="object-contain"

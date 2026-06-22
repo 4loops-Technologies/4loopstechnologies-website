@@ -1,11 +1,15 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useTheme } from "next-themes"
 import { ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
+
+const LazyInfinityAnimation = lazy(() =>
+  Promise.resolve({ default: InfinityAnimation })
+)
 
 // ─── Section themes ─────────────────────────────────────────────────────────
 
@@ -515,10 +519,12 @@ export default function AboutPage() {
         <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
           <div className="ab-split">
 
-            {/* LEFT — sticky infinite-loop animation */}
+            {/* LEFT — sticky infinite-loop animation (lazy loaded) */}
             <div className="ab-left">
               <div className="ab-sticky">
-                <InfinityAnimation sectionIdx={activeIdx} />
+                <Suspense fallback={<div style={{ width: "100%", height: "100%" }} />}>
+                  <LazyInfinityAnimation sectionIdx={activeIdx} />
+                </Suspense>
               </div>
             </div>
 

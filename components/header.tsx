@@ -72,6 +72,7 @@ export function Header() {
   return (
     <header role="banner" className="fixed top-0 left-0 right-0 z-50 flex justify-center py-5">
       <nav
+        aria-label="Main navigation"
         className="w-[88%] h-[74px] flex items-center justify-between px-[30px] py-[8px] rounded-[20px] group"
         style={navStyle}
       >
@@ -96,7 +97,7 @@ export function Header() {
           <div className="relative h-[42px] overflow-hidden flex items-center justify-center">
             <Image
               src="/logo.png"
-              alt="4loops Technologies"
+              alt="4loops Technologies — Software Development & AI Solutions"
               width={312}
               height={156}
               className="h-[96px] w-auto max-w-none shrink-0 transition-all duration-300 group-hover/logo:scale-[1.03] dark:drop-shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover/logo:dark:drop-shadow-[0_0_25px_rgba(0,212,255,0.5)]"

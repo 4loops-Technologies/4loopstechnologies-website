@@ -265,9 +265,10 @@ export default function ProductsPage() {
                         {/* CTA */}
                         <Link
                           href={`/products/${product.slug}`}
+                          aria-label={`Learn more about ${product.name}`}
                           style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "13px", fontWeight: 600, color: product.accent, textDecoration: "none" }}
                         >
-                          Learn more <ArrowRight size={14} />
+                          Learn more <ArrowRight size={14} aria-hidden="true" />
                         </Link>
                       </div>
                     </div>

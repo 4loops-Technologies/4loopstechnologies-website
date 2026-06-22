@@ -1,0 +1,61 @@
+# 4loops Technologies
+
+> Ethiopian software company delivering AI systems, ERP & CRM solutions, cloud infrastructure, and custom software for businesses across East Africa since 2019.
+
+## Company Overview
+
+4loops Technologies is a software engineering company headquartered in Addis Ababa, Ethiopia. Founded in 2019, we specialize in building AI-powered software, enterprise systems, cloud infrastructure, and custom software solutions for businesses across Ethiopia and East Africa.
+
+We serve clients in industries including financial services, healthcare, education, e-commerce, construction, logistics, food and beverage, and government.
+
+## Core Services
+
+- Custom Software Development: Bespoke web, desktop, and mobile applications built with Next.js, React, Node.js, Python, Go, PostgreSQL, and other modern technologies.
+- AI & Machine Learning: Intelligent automation, NLP (including Amharic and Afaan Oromoo), computer vision, predictive analytics, and conversational AI systems.
+- Cloud Infrastructure & DevOps: End-to-end cloud architecture on AWS, Azure, and GCP with CI/CD pipelines, Kubernetes, Docker, Terraform, and GitOps workflows.
+- ERP & CRM Systems: Enterprise resource planning and CRM implementation using Odoo, ERPNext, and custom-built solutions tailored to Ethiopian business requirements.
+- Mobile App Development: Cross-platform iOS and Android applications using Flutter and React Native with offline-first architecture.
+- Cybersecurity & Compliance: Penetration testing, security audits, ISO 27001 compliance, zero-trust architecture, and 24/7 threat monitoring.
+- Business Intelligence & Analytics: Custom dashboards, data warehousing, ETL pipelines, and predictive reporting.
+- Digital Transformation: End-to-end digital strategy, process automation, change management, and technology consulting.
+
+## Products
+
+- AI Assistant Pro: Context-aware conversational AI platform with multi-language support including Amharic. Enterprise-grade security, custom model training, and integrations with CRM, ERP, and helpdesk systems.
+- Analytics Hub: Real-time business intelligence platform with predictive analytics, custom dashboards, automated ETL pipelines, and 50+ data source connectors.
+- DocuFlow: AI-powered document management system with smart OCR (99%+ accuracy), workflow automation, e-signatures, and support for Amharic and Geez scripts.
+- CommUnify: Unified team communication platform combining chat, HD video conferencing for up to 500 participants, file sharing, and 200+ app integrations.
+- TapConnect NFC: NFC-powered digital business card platform with real-time profile updates, engagement analytics, QR code fallback, and team management dashboard.
+
+## Technology Stack
+
+React, Next.js, TypeScript, Tailwind CSS, Node.js, Python, Go, FastAPI, Docker, Kubernetes, TensorFlow, PyTorch, Terraform, Flutter, React Native, Firebase, PostgreSQL, MongoDB, Redis, AWS, Azure, GCP.
+
+## Key Facts
+
+- Founded: 2019
+- Headquarters: Addis Ababa, Ethiopia
+- Team Size: 10-50 employees
+- Projects Delivered: 50+
+- Client Satisfaction: 98%
+- Area Served: Ethiopia, East Africa, and globally
+- Languages Supported: English, Amharic
+- Contact Email: hello@4loopstechnologies.com
+- Website: https://4loopstechnologies.com
+- LinkedIn: https://www.linkedin.com/company/4loops-technologies
+
+## Featured Projects
+
+- Buna Bello: Full-stack e-commerce platform for a premium Ethiopian coffee brand with inventory management and order fulfillment.
+- Temari Lije: EdTech platform connecting students with tutors featuring AI-powered learning recommendations.
+- Neo Vend: Smart vending management system with IoT telemetry, cashless payments, and route optimization.
+- Zekre Sematat: Brand identity and digital presence with website, ticketing platform, and social media integration.
+- Saylem Construction: Project management platform with site tracking, material procurement, and workforce scheduling.
+
+## Differentiators
+
+- Local-first AI: Models trained on local languages and business contexts, not just machine translation.
+- Offline-first architecture: Applications designed for markets with variable connectivity.
+- Deep domain expertise: Deep understanding of Ethiopian regulatory requirements, tax codes, and business practices.
+- End-to-end delivery: From discovery workshops through deployment and ongoing support.
+- Enterprise security: SOC 2 compliant, end-to-end encryption, data residency controls.
