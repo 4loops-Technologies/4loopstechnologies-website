@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Software Solutions — AI, Cloud & Enterprise Services by Ethiopia\'s #1 Tech Company',
-  description: "Explore 4loops Technologies' industry-leading service range: AI/ML systems, ERP & CRM implementation, cloud infrastructure, DevOps, cybersecurity, and custom enterprise software.",
+  title: 'Solutions — AI, Cloud & Enterprise Services by Ethiopia\'s #1 AI Technology Company',
+  description: 'AI/ML systems, ERP & CRM, cloud infrastructure, cybersecurity, and custom software from 4loops Technologies — Ethiopia\'s #1 AI technology company.',
   alternates: { canonical: 'https://4loopstechnologies.com/solutions' },
   openGraph: {
-    title: 'Software Solutions | 4loops Technologies — #1 in Ethiopia',
-    description: 'Industry-leading AI/ML systems, ERP & CRM, cloud infrastructure, DevOps, cybersecurity, and custom software for Ethiopian and East African enterprises.',
+    title: 'Solutions | 4loops Technologies — #1 AI Technology Company',
+    description: 'AI/ML systems, ERP & CRM, cloud infrastructure, DevOps, cybersecurity, and custom software by Ethiopia\'s #1 AI technology company for East African enterprises.',
     url: 'https://4loopstechnologies.com/solutions',
-    images: [{ url: '/logo.png', width: 512, height: 512, alt: '4loops Technologies Software Solutions' }],
+    images: [{ url: '/logo.png', width: 2000, height: 2000, alt: '4loops Technologies Solutions — #1 AI Technology Company' }],
   },
 }
 

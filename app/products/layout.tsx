@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Products — Enterprise AI Software by Ethiopia\'s #1 Tech Company',
-  description: 'Explore 4loops Technologies\' industry-leading product suite: AI Assistant Pro, Analytics Hub, DocuFlow, CommUnify, and TapConnect NFC — enterprise-grade software built for scale.',
+  title: 'Products — Enterprise AI Software by Ethiopia\'s #1 AI Technology Company',
+  description: 'Enterprise AI products by 4loops Technologies, Ethiopia\'s #1 AI technology company: AI Assistant Pro, Analytics Hub, DocuFlow, CommUnify, and TapConnect.',
   alternates: { canonical: 'https://4loopstechnologies.com/products' },
   openGraph: {
-    title: 'Products | 4loops Technologies — #1 in Ethiopia',
-    description: 'Industry-leading AI-powered enterprise software: intelligent assistants, business analytics, document management, NFC business cards, and unified communications.',
+    title: 'Products | 4loops Technologies — #1 AI Technology Company',
+    description: 'AI-powered enterprise software by Ethiopia\'s #1 AI technology company: intelligent assistants, analytics, document management, NFC cards, and communications.',
     url: 'https://4loopstechnologies.com/products',
-    images: [{ url: '/logo.png', width: 512, height: 512, alt: '4loops Technologies Products' }],
+    images: [{ url: '/logo.png', width: 2000, height: 2000, alt: '4loops Technologies Products — #1 AI Technology Company' }],
   },
 }
 

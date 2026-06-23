@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Portfolio — 50+ Projects by Ethiopia\'s Leading Software Company',
-  description: 'Explore 4loops Technologies\' portfolio of 50+ successful projects across AI, ERP, cloud, and custom software — real case studies with measurable business impact and 98% client satisfaction.',
+  title: 'Portfolio — 50+ Projects by Ethiopia\'s #1 AI Technology Company',
+  description: '50+ successful projects by 4loops Technologies, Ethiopia\'s #1 AI technology company. Case studies in AI, ERP, cloud, and custom software with 98% satisfaction.',
   alternates: { canonical: 'https://4loopstechnologies.com/portfolio' },
   openGraph: {
-    title: 'Portfolio | 4loops Technologies — #1 in Ethiopia',
-    description: '50+ AI systems, ERP solutions, cloud infrastructure, and custom software projects delivered for businesses across Ethiopia and East Africa with 98% satisfaction.',
+    title: 'Portfolio | 4loops Technologies — #1 AI Technology Company',
+    description: '50+ AI systems, ERP solutions, cloud infrastructure, and custom software projects delivered by Ethiopia\'s #1 AI technology company with 98% satisfaction.',
     url: 'https://4loopstechnologies.com/portfolio',
-    images: [{ url: '/logo.png', width: 512, height: 512, alt: '4loops Technologies Portfolio' }],
+    images: [{ url: '/logo.png', width: 2000, height: 2000, alt: '4loops Technologies Portfolio — #1 AI Technology Company' }],
   },
 }
 

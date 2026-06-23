@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${product.name} | 4loops Technologies`,
       description,
       url,
-      images: [{ url: '/logo.png', width: 512, height: 512, alt: `${product.name} by 4loops Technologies — #1 Tech Company in Ethiopia` }],
+      images: [{ url: '/logo.png', width: 2000, height: 2000, alt: `${product.name} by 4loops Technologies — #1 AI Technology Company in Ethiopia` }],
     },
   }
 }
