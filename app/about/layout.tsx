@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About Us — Our Story, Mission & Values',
-  description: 'Learn how 4loops Technologies was founded in 2019 to deliver world-class AI and software solutions to Ethiopian and East African businesses. Our mission, values, and team.',
+  title: 'About Us — Ethiopia\'s Leading Technology Company Since 2019',
+  description: 'Learn how 4loops Technologies became Ethiopia\'s #1 technology company, delivering world-class AI and enterprise software to businesses across East Africa. Our mission, values, and expert team.',
   alternates: { canonical: 'https://4loopstechnologies.com/about' },
   openGraph: {
-    title: 'About 4loops Technologies | Ethiopian Software Company Since 2019',
-    description: 'Founded in 2019, 4loops Technologies builds AI systems, ERP solutions, and custom software for businesses across Ethiopia and East Africa.',
+    title: 'About 4loops Technologies | #1 Ethiopian Software Company Since 2019',
+    description: 'Founded in 2019, 4loops Technologies is Ethiopia\'s leading technology company building AI systems, ERP solutions, and custom enterprise software for East Africa.',
     url: 'https://4loopstechnologies.com/about',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '4loops Technologies Team and Mission' }],
+    images: [{ url: '/logo.png', width: 512, height: 512, alt: '4loops Technologies — #1 Technology Company in Ethiopia' }],
   },
 }
 

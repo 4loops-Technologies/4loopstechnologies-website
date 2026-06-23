@@ -1,12 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono, Instrument_Sans } from 'next/font/google'
-import dynamic from 'next/dynamic'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
-
-const Analytics = dynamic(
-  () => import('@vercel/analytics/next').then((mod) => mod.Analytics)
-)
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,11 +28,11 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://4loopstechnologies.com'),
   title: {
-    default: '4loops Technologies | AI & Software Solutions Ethiopia',
+    default: '4loops Technologies | #1 Software & AI Company in Ethiopia',
     template: '%s | 4loops Technologies',
   },
-  description: 'Ethiopian software company delivering AI systems, ERP & CRM solutions, cloud infrastructure, and custom software for businesses across East Africa since 2019.',
-  keywords: ['software development Ethiopia', 'AI solutions Ethiopia', 'ERP software Ethiopia', 'custom software development', 'cloud solutions East Africa', 'digital transformation Ethiopia', '4loops technologies'],
+  description: 'Ethiopia\'s leading technology company delivering AI systems, ERP & CRM solutions, cloud infrastructure, and custom enterprise software. 50+ projects delivered with 98% client satisfaction since 2019.',
+  keywords: ['number one technology company Ethiopia', 'best software development Ethiopia', 'AI solutions Ethiopia', 'ERP software Ethiopia', 'custom software development', 'cloud solutions East Africa', 'digital transformation Ethiopia', '4loops technologies', 'top software company Addis Ababa', 'enterprise AI East Africa'],
   authors: [{ name: '4loops Technologies', url: 'https://4loopstechnologies.com' }],
   creator: '4loops Technologies',
   publisher: '4loops Technologies',
@@ -51,15 +46,16 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://4loopstechnologies.com',
     siteName: '4loops Technologies',
-    title: '4loops Technologies | AI & Software Solutions Ethiopia',
-    description: 'Ethiopian software company delivering AI systems, ERP & CRM solutions, cloud infrastructure, and custom software for businesses across East Africa since 2019.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '4loops Technologies — AI & Software Solutions for East Africa' }],
+    title: '4loops Technologies | #1 Software & AI Company in Ethiopia',
+    description: 'Ethiopia\'s leading technology company delivering AI systems, ERP & CRM solutions, cloud infrastructure, and custom enterprise software. 50+ projects, 98% satisfaction.',
+    images: [{ url: '/logo.png', width: 512, height: 512, alt: '4loops Technologies — #1 Software & AI Company in Ethiopia' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '4loops Technologies | AI & Software Solutions Ethiopia',
-    description: 'Ethiopian software company delivering AI systems, ERP & CRM, cloud infrastructure, and custom software for East Africa.',
-    images: ['/og-image.png'],
+    title: '4loops Technologies | #1 Software & AI Company in Ethiopia',
+    description: 'Ethiopia\'s leading technology company delivering AI systems, ERP & CRM, cloud infrastructure, and custom enterprise software for East Africa.',
+    creator: '@4loopsTech',
+    images: ['/logo.png'],
   },
   icons: {
     icon: [
@@ -106,7 +102,6 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -126,7 +121,7 @@ export default function RootLayout({
                     height: 512,
                   },
                   image: 'https://4loopstechnologies.com/logo.png',
-                  description: 'Ethiopian software company delivering AI systems, ERP/CRM solutions, cloud infrastructure, and custom software for businesses across East Africa since 2019. Specializing in custom software development, artificial intelligence, machine learning, cloud computing, mobile app development, cybersecurity, and digital transformation.',
+                  description: 'Ethiopia\'s number one technology company delivering AI systems, ERP/CRM solutions, cloud infrastructure, and custom enterprise software for businesses across East Africa since 2019. Industry leader in custom software development, artificial intelligence, machine learning, cloud computing, mobile app development, cybersecurity, and digital transformation.',
                   foundingDate: '2019',
                   areaServed: [
                     { '@type': 'Country', name: 'Ethiopia' },
@@ -184,8 +179,15 @@ export default function RootLayout({
                     'Business Intelligence',
                     'Data Analytics',
                   ],
+                  aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: '4.9',
+                    bestRating: '5',
+                    ratingCount: '50',
+                    reviewCount: '48',
+                  },
                   numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 10, maxValue: 50 },
-                  slogan: 'Custom Software Development & AI Solutions for Enterprise',
+                  slogan: '#1 Technology Company in Ethiopia — Custom Software Development & AI Solutions for Enterprise',
                   hasOfferCatalog: {
                     '@type': 'OfferCatalog',
                     name: 'Software Development Services',
@@ -246,7 +248,7 @@ export default function RootLayout({
                   '@id': 'https://4loopstechnologies.com/#website',
                   url: 'https://4loopstechnologies.com',
                   name: '4loops Technologies',
-                  description: 'Custom Software Development & AI Solutions for Enterprise — Ethiopian software company serving businesses across East Africa since 2019.',
+                  description: '#1 Technology Company in Ethiopia — Custom Software Development & AI Solutions for Enterprise, serving businesses across East Africa since 2019.',
                   publisher: { '@id': 'https://4loopstechnologies.com/#organization' },
                   inLanguage: 'en',
                 },

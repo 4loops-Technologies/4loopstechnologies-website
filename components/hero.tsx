@@ -10,7 +10,24 @@ export function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="animate-fade-up flex justify-center mb-6">
+        <div className="animate-fade-up flex justify-center mb-4">
+          <span
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-bold tracking-wide border"
+            style={{
+              background: "linear-gradient(135deg, rgba(0,212,255,0.12) 0%, rgba(74,222,128,0.10) 100%)",
+              borderColor: "rgba(0,212,255,0.30)",
+              color: "#00d4ff",
+              boxShadow: "0 0 24px rgba(0,212,255,0.18), 0 0 60px rgba(0,212,255,0.06)",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+            }}
+          >
+            <Sparkles className="h-4 w-4" aria-hidden="true" />
+            Number One Technology Company
+          </span>
+        </div>
+
+        <div className="animate-fade-up flex justify-center mb-6" style={{ animationDelay: "80ms" }}>
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-sm font-medium text-muted-foreground border border-border">
             <Sparkles className="h-4 w-4 text-neon-blue" aria-hidden="true" />
             Software Engineering Since 2019

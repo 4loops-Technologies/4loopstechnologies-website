@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Get a Free Consultation',
-  description: 'Contact 4loops Technologies for custom software, AI solutions, or ERP/CRM implementation in Ethiopia and East Africa. Get a free consultation within one business day.',
+  title: 'Contact Ethiopia\'s #1 Technology Company — Free Consultation',
+  description: 'Contact 4loops Technologies, Ethiopia\'s leading software company, for custom software, AI solutions, or ERP/CRM implementation. Get a free expert consultation within one business day.',
   alternates: { canonical: 'https://4loopstechnologies.com/contact' },
   openGraph: {
-    title: 'Contact 4loops Technologies | Free Consultation',
-    description: 'Reach out to 4loops Technologies for AI systems, ERP/CRM, custom software, or cloud infrastructure. Based in Ethiopia, serving East Africa.',
+    title: 'Contact 4loops Technologies | Ethiopia\'s #1 Tech Company',
+    description: 'Reach out to Ethiopia\'s leading technology company for AI systems, ERP/CRM, custom software, or cloud infrastructure. 50+ projects delivered, 98% satisfaction.',
     url: 'https://4loopstechnologies.com/contact',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '4loops Technologies — Contact Us' }],
+    images: [{ url: '/logo.png', width: 512, height: 512, alt: '4loops Technologies — Contact Us' }],
   },
 }
 
