@@ -1,0 +1,20 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="36" fill="#060d1a"/>
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#00d4ff"/>
+      <stop offset="55%"  stop-color="#00cccc"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+  <!-- Geometric "4" -->
+  <!-- Left diagonal stroke -->
+  <path d="M38 42 L38 98 L58 98 L104 42 Z" fill="url(#a)"/>
+  <!-- Horizontal crossbar -->
+  <rect x="26" y="98" width="114" height="20" rx="5" fill="url(#a)"/>
+  <!-- Vertical right stroke (top to bottom) -->
+  <rect x="118" y="28" width="20" height="122" rx="5" fill="url(#a)"/>
+  <!-- Infinity / loops accent -->
+  <path d="M46 148 Q58 134 72 148 Q86 162 100 148 Q114 134 128 148 Q114 162 100 148 Q86 134 72 148 Q58 162 46 148 Z"
+        fill="url(#a)" opacity="0.75"/>
+</svg>
