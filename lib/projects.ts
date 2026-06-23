@@ -39,7 +39,7 @@ export const projects: Project[] = [
     name: "Saylem Construction",
     description: "Project management and resource planning platform for a construction firm — site tracking, material procurement, workforce scheduling, and reporting.",
     industry: "Construction",
-    logo: "/placeholder-logo.png",
+    logo: "/partners/saylemlogo.png",
     featured: false,
   },
 ]
