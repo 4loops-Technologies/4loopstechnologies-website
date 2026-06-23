@@ -32,7 +32,7 @@ export const projects: Project[] = [
     name: "Zekre Sematat",
     description: "Brand identity and digital presence for a cultural events organisation — website, ticketing platform, and social media integration.",
     industry: "Events / Culture",
-    logo: "/partners/ecco.png",
+    logo: "/partners/zkresemahtat.png",
     featured: false,
   },
   {
