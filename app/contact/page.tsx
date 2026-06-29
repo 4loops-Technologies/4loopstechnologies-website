@@ -40,8 +40,8 @@ const contactItems = [
   {
     Icon: Phone,
     label: "Call us",
-    value: "+251 91 234 5678",
-    href: "tel:+251912345678",
+    value: "+251 911692252",
+    href: "tel:+251911692252",
     accent: "#4ade80",
   },
   {
