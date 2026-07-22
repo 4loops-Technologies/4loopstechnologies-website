@@ -33,8 +33,8 @@ const contactItems = [
   {
     Icon: Mail,
     label: "Email us",
-    value: "hello@4loopstechnologies.com",
-    href: "mailto:hello@4loopstechnologies.com",
+    value: "biruk.taffa@4loopstechnologies.com",
+    href: "mailto:biruk.taffa@4loopstechnologies.com",
     accent: "#00d4ff",
   },
   {
