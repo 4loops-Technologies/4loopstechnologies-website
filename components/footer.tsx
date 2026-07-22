@@ -11,6 +11,7 @@ const nav = [
   {
     heading: "Highlights",
     links: [
+      { label: "Home",       href: "/" },
       { label: "Portfolio",  href: "/portfolio" },
       { label: "Products",   href: "/products" },
       { label: "Solutions",  href: "/solutions" },

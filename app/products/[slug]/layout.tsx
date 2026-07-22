@@ -12,19 +12,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(slug)
   if (!product) return {}
 
-  const title = `${product.name} — ${product.tagline}`
+  // Built explicitly rather than relying on the root title.template: this layout is nested two
+  // levels below the root (root → products → [slug]), and Next.js only cascades a title template
+  // one level down, so a plain string here would render with no brand name at all.
+  const fullTitle = `${product.name} | ${product.tagline} | 4loops Technologies`
   const description = product.description.slice(0, 155) + '…'
   const url = `https://4loopstechnologies.com/products/${slug}`
+  const ogImageAlt = `${product.name} by 4loops Technologies — #1 AI Technology Company in Ethiopia`
 
   return {
-    title,
+    title: { absolute: fullTitle },
     description,
     alternates: { canonical: url },
     openGraph: {
       title: `${product.name} | 4loops Technologies`,
       description,
       url,
-      images: [{ url: '/logo.png', width: 2000, height: 2000, alt: `${product.name} by 4loops Technologies — #1 AI Technology Company in Ethiopia` }],
+      images: [{ url: '/logo.png', width: 2000, height: 2000, alt: ogImageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | 4loops Technologies`,
+      description,
+      images: ['/logo.png'],
     },
   }
 }
@@ -56,11 +66,9 @@ export default async function ProductDetailLayout({ params, children }: Props) {
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     url: `https://4loopstechnologies.com/products/${slug}`,
-    author: {
-      '@type': 'Organization',
-      name: '4loops Technologies',
-      url: 'https://4loopstechnologies.com',
-    },
+    isPartOf: { '@id': 'https://4loopstechnologies.com/#website' },
+    author: { '@id': 'https://4loopstechnologies.com/#organization' },
+    publisher: { '@id': 'https://4loopstechnologies.com/#organization' },
   }
 
   const faqSchema = {
