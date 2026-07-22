@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Portfolio — 50+ Projects by Ethiopia\'s #1 AI Technology Company',
+  title: 'Portfolio — Software & AI Projects',
   description: '50+ successful projects by 4loops Technologies, Ethiopia\'s #1 AI technology company. Case studies in AI, ERP, cloud, and custom software with 98% satisfaction.',
   alternates: { canonical: 'https://4loopstechnologies.com/portfolio' },
   openGraph: {

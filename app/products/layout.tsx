@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Products — Enterprise AI Software by Ethiopia\'s #1 AI Technology Company',
+  title: 'Enterprise AI Products & Software',
   description: 'Enterprise AI products by 4loops Technologies, Ethiopia\'s #1 AI technology company: AI Assistant Pro, Analytics Hub, DocuFlow, CommUnify, and TapConnect.',
   alternates: { canonical: 'https://4loopstechnologies.com/products' },
   openGraph: {

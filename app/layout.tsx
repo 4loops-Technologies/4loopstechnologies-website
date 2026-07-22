@@ -179,13 +179,6 @@ export default function RootLayout({
                     'Business Intelligence',
                     'Data Analytics',
                   ],
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: '4.9',
-                    bestRating: '5',
-                    ratingCount: '50',
-                    reviewCount: '48',
-                  },
                   numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 10, maxValue: 50 },
                   slogan: '#1 AI Technology Company in Ethiopia — Custom Software Development & AI Solutions for Enterprise',
                   hasOfferCatalog: {

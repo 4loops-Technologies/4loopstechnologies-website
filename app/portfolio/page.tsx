@@ -47,7 +47,7 @@ export default function PortfolioPage() {
     <>
       <Header />
 
-      <div style={{ background: t.pageBg, minHeight: "100vh", color: t.pageColor, transition: "background 0.3s ease" }}>
+      <main style={{ background: t.pageBg, minHeight: "100vh", color: t.pageColor, transition: "background 0.3s ease" }}>
 
         {/* ── Hero ── */}
         <section style={{
@@ -220,7 +220,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-      </div>
+      </main>
 
       <Footer />
     </>

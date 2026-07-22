@@ -24,6 +24,12 @@ const nav = [
       { label: "DocuFlow",          href: "/products/docuflow" },
       { label: "CommUnify",         href: "/products/communify" },
       { label: "TapConnect NFC",    href: "/products/nfc-business-card" },
+      { label: "Property Management",  href: "/products/property-management-system" },
+      { label: "School Management",    href: "/products/school-management-system" },
+      { label: "Gym Management",       href: "/products/gym-management-system" },
+      { label: "Hotel Management",     href: "/products/hotel-management-system" },
+      { label: "Café Menu System",     href: "/products/cafe-menu-system" },
+      { label: "Shop Management",      href: "/products/shop-management-system" },
     ],
   },
   {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Solutions — AI, Cloud & Enterprise Services by Ethiopia\'s #1 AI Technology Company',
+  title: 'AI, Cloud & Digital Transformation',
   description: 'AI/ML systems, ERP & CRM, cloud infrastructure, cybersecurity, and custom software from 4loops Technologies — Ethiopia\'s #1 AI technology company.',
   alternates: { canonical: 'https://4loopstechnologies.com/solutions' },
   openGraph: {
@@ -11,6 +11,33 @@ export const metadata: Metadata = {
     images: [{ url: '/logo.png', width: 2000, height: 2000, alt: '4loops Technologies Solutions — #1 AI Technology Company' }],
   },
 }
+
+const faqs = [
+  {
+    question: "Is 4loops Technologies an AI solutions provider or a software development company?",
+    answer: "Both. 4loops Technologies is an AI technology company that also delivers full custom software development — from AI/ML systems and enterprise automation to bespoke web, mobile, and ERP/CRM platforms. Most engagements combine several of these disciplines under one team.",
+  },
+  {
+    question: "What enterprise AI solutions does 4loops Technologies offer?",
+    answer: "Conversational AI, predictive analytics, computer vision, and NLP systems — including production Amharic and Afaan Oromoo language models — integrated directly into ERP, CRM, and internal business systems for enterprise clients.",
+  },
+  {
+    question: "Does 4loops Technologies provide AI automation services?",
+    answer: "Yes. We design intelligent automation for workflows such as document processing, customer support, demand forecasting, and operational reporting, replacing manual processes with AI-driven systems.",
+  },
+  {
+    question: "What does digital transformation look like with 4loops Technologies?",
+    answer: "Digital transformation engagements typically combine cloud migration, process automation, custom software, and AI adoption — delivered end-to-end from discovery through deployment and training, with no handoffs between teams.",
+  },
+  {
+    question: "What industries and regions does 4loops Technologies serve?",
+    answer: "Financial services, healthcare, education, e-commerce, construction, logistics, food and beverage, and government. We're headquartered in Addis Ababa and serve clients across Ethiopia, East Africa, and internationally.",
+  },
+  {
+    question: "How is 4loops Technologies different from other software development companies?",
+    answer: "We train AI models on local languages and business context rather than relying on machine translation, and we design applications offline-first for markets with variable connectivity — combined with deep knowledge of Ethiopian regulatory and tax requirements.",
+  },
+]
 
 const services = [
   { name: 'Cloud Infrastructure & DevOps', description: 'End-to-end cloud architecture, CI/CD pipelines, and containerization on AWS, Azure, and GCP.' },
@@ -60,6 +87,23 @@ export default function SolutionsLayout({ children }: { children: React.ReactNod
                 },
                 areaServed: ['Ethiopia', 'East Africa'],
                 url: 'https://4loopstechnologies.com/solutions',
+              },
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
               },
             })),
           }),

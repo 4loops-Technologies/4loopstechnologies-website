@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { useTheme } from "next-themes"
 import {
   Cloud, Brain, Shield, Smartphone, BarChart3,
-  Database, Code2, Cpu, ArrowRight, Check,
+  Database, Code2, Cpu, ArrowRight, Check, ChevronDown,
 } from "lucide-react"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
@@ -124,6 +124,33 @@ const TECH_ITEMS = [
   { name: "Redis",        color: "#DC382D", slug: "redis"           },
 ]
 
+const FAQS = [
+  {
+    question: "Is 4loops Technologies an AI solutions provider or a software development company?",
+    answer: "Both. 4loops Technologies is an AI technology company that also delivers full custom software development — from AI/ML systems and enterprise automation to bespoke web, mobile, and ERP/CRM platforms. Most engagements combine several of these disciplines under one team.",
+  },
+  {
+    question: "What enterprise AI solutions does 4loops Technologies offer?",
+    answer: "Conversational AI, predictive analytics, computer vision, and NLP systems — including production Amharic and Afaan Oromoo language models — integrated directly into ERP, CRM, and internal business systems for enterprise clients.",
+  },
+  {
+    question: "Does 4loops Technologies provide AI automation services?",
+    answer: "Yes. We design intelligent automation for workflows such as document processing, customer support, demand forecasting, and operational reporting, replacing manual processes with AI-driven systems.",
+  },
+  {
+    question: "What does digital transformation look like with 4loops Technologies?",
+    answer: "Digital transformation engagements typically combine cloud migration, process automation, custom software, and AI adoption — delivered end-to-end from discovery through deployment and training, with no handoffs between teams.",
+  },
+  {
+    question: "What industries and regions does 4loops Technologies serve?",
+    answer: "Financial services, healthcare, education, e-commerce, construction, logistics, food and beverage, and government. We're headquartered in Addis Ababa and serve clients across Ethiopia, East Africa, and internationally.",
+  },
+  {
+    question: "How is 4loops Technologies different from other software development companies?",
+    answer: "We train AI models on local languages and business context rather than relying on machine translation, and we design applications offline-first for markets with variable connectivity — combined with deep knowledge of Ethiopian regulatory and tax requirements.",
+  },
+]
+
 // ─── Static (non-theme) styles ─────────────────────────────────────────────
 
 const GRADIENT_TEXT: React.CSSProperties = {
@@ -175,6 +202,42 @@ function th(isDark: boolean) {
     tagBorder:   isDark ? "rgba(255,255,255,0.09)"         : "rgba(0,0,0,0.08)",
     tagColor:    isDark ? "rgba(226,232,240,0.65)"         : "rgba(15,23,42,0.60)",
   }
+}
+
+// ─── FAQ item ───────────────────────────────────────────────────────────────
+
+function FAQItem({ faq, isDark }: { faq: (typeof FAQS)[number]; isDark: boolean }) {
+  const [open, setOpen] = useState(false)
+  const t = th(isDark)
+  return (
+    <div style={{
+      borderRadius: "14px", overflow: "hidden",
+      background: t.cardBg,
+      border: `1px solid ${t.cardBorder}`,
+    }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "18px 22px", cursor: "pointer", background: "transparent", border: "none",
+          color: t.heading, fontSize: "15px", fontWeight: 600, textAlign: "left",
+        }}
+      >
+        {faq.question}
+        <ChevronDown size={16} style={{
+          color: "#00d4ff", transition: "transform 0.3s ease", flexShrink: 0, marginLeft: "12px",
+          transform: open ? "rotate(180deg)" : "rotate(0deg)",
+        }} />
+      </button>
+      <div style={{
+        maxHeight: open ? "220px" : "0px", overflow: "hidden",
+        transition: "max-height 0.35s ease, padding 0.35s ease",
+        padding: open ? "0 22px 18px" : "0 22px 0",
+      }}>
+        <p style={{ fontSize: "14px", color: t.muted, lineHeight: 1.72 }}>{faq.answer}</p>
+      </div>
+    </div>
+  )
 }
 
 // ─── Left panel visual ──────────────────────────────────────────────────────
@@ -421,7 +484,7 @@ export default function SolutionsPage() {
     <>
       <Header />
 
-      <div style={{ background: t.pageBg, minHeight: "100vh", color: t.pageColor, transition: "background 0.3s ease, color 0.3s ease" }}>
+      <main style={{ background: t.pageBg, minHeight: "100vh", color: t.pageColor, transition: "background 0.3s ease, color 0.3s ease" }}>
 
         {/* ── Hero ─────────────────────────────────────────────────── */}
         <section style={{ position:"relative", padding:"120px 0 72px", overflow:"hidden", ...GRID_BG }}>
@@ -510,6 +573,23 @@ export default function SolutionsPage() {
           </div>
         </div>
 
+        {/* ── FAQ ──────────────────────────────────────────────────── */}
+        <section style={{ padding: "0 24px 80px" }}>
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: "48px" }}>
+              <p style={{ ...MONO_LABEL, marginBottom: "12px" }}>✦ FAQ</p>
+              <h2 style={{ fontSize: "clamp(24px,3.5vw,40px)", fontWeight: 800, color: t.heading, letterSpacing: "-0.025em" }}>
+                Common Questions
+              </h2>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {FAQS.map((faq) => (
+                <FAQItem key={faq.question} faq={faq} isDark={isDark} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA banner ───────────────────────────────────────────── */}
         <section style={{ padding:"0 24px 80px" }}>
           <div
@@ -561,7 +641,7 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-      </div>
+      </main>
 
       {/* ── Scoped CSS ────────────────────────────────────────────── */}
       <style>{`

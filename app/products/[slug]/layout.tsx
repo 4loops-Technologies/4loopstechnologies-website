@@ -56,13 +56,6 @@ export default async function ProductDetailLayout({ params, children }: Props) {
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     url: `https://4loopstechnologies.com/products/${slug}`,
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      price: '0',
-      priceCurrency: 'USD',
-      description: 'Contact us for enterprise pricing',
-    },
     author: {
       '@type': 'Organization',
       name: '4loops Technologies',

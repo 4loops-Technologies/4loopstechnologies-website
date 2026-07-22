@@ -487,7 +487,7 @@ export default function AboutPage() {
     <>
       <Header />
 
-      <div style={{ background: t.pageBg, minHeight: "100vh", color: t.pageColor, transition: "background 0.3s ease" }}>
+      <main style={{ background: t.pageBg, minHeight: "100vh", color: t.pageColor, transition: "background 0.3s ease" }}>
 
         {/* ── Hero ── */}
         <section style={{
@@ -593,7 +593,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-      </div>
+      </main>
 
       {/* ── Layout styles ── */}
       <style>{`
