@@ -79,6 +79,7 @@ export function Header() {
         {/* Logo — always routes to landing page */}
         <Link
           href="/"
+          aria-label="4loops Technologies — Home"
           className="relative flex flex-col items-center justify-center flex-shrink-0 group/logo leading-none"
         >
           <span
